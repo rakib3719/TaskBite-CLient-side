@@ -6,7 +6,7 @@ import useGetUser from "../../hook/useGetUser";
 
 
 const DashbordMenu = () => {
-    const [userData, refetch] = useGetUser()
+    const [userData, refetch, isLoading] = useGetUser()
     const {user} = useContext(AuthContext)
     return (
         <div>

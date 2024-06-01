@@ -16,8 +16,8 @@ import CreatorMenu from '../menu/CreatorMenu'
 import AdminMenu from '../menu/AdminMenu'
 
 const Sidebar = () => {
-    const [usesrData, refetch] = useGetUser()
-    console.log(usesrData);
+    const [usesrData, refetch, isLoading] = useGetUser()
+  
 
   const [isActive, setActive] = useState(false)
 
@@ -25,6 +25,9 @@ const Sidebar = () => {
   const handleToggle = () => {
     setActive(!isActive)
   }
+
+
+  
   return (
     <>
       {/* Small Screen Navbar */}
@@ -65,9 +68,7 @@ const Sidebar = () => {
           <div className='flex flex-col justify-between flex-1 mt-6'>
             {/* Conditional toggle button here.. */}
 
-            {/*  Menu Items */}
-           {/* <WorkerMenu></WorkerMenu> */}
-           {/* <CreatorMenu></CreatorMenu> */}
+          
      
 
 

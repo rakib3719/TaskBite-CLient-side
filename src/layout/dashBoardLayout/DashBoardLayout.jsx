@@ -3,13 +3,19 @@ import Sidebar from "../../component/dashBoardComponent/sidebar/Sidebar";
 
 import { IoIosNotifications } from "react-icons/io";
 import DashbordMenu from "../../component/dashBoardComponent/DashbordMenu";
+import useGetUser from "../../hook/useGetUser";
+import { ColorRing } from "react-loader-spinner";
+import RingLoading from "../../component/loader/RingLoading";
 
 <IoIosNotifications />
 
 
 
 const DashBoardLayout = () => {
-
+const [, , isLoading] = useGetUser();
+if(isLoading){
+    return <RingLoading></RingLoading>
+}
 
     return (
         <div>
@@ -51,7 +57,7 @@ A dark gray with a bluish tint, offering a slight variation.*/}
       <Sidebar />
 
 
-      <div className='flex-1 md:ml-64'>
+      <div className='flex-1 md:ml-64 mt-28'>
         <div className='p-5'>
           <Outlet />
         </div>

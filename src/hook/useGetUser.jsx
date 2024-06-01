@@ -8,7 +8,7 @@ const useGetUser = () => {
 
     const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
-   const{data: userData = {}, refetch} = useQuery(
+   const{data: userData = {}, refetch, isLoading} = useQuery(
 
 {
 
@@ -25,7 +25,7 @@ queryFn:  async()=>{
 
    )
 
-   return [userData, refetch]
+   return [userData, refetch, isLoading]
 
 
 
