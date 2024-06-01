@@ -18,10 +18,10 @@ const Main = () => {
         </div>
 
             <div>
-                <Footer></Footer>
+            <Footer></Footer> 
             </div>
 
-            <button  onClick={pay} >pay</button>
+           
         </div>
     );
 };
