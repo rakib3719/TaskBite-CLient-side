@@ -9,8 +9,8 @@ const DashbordMenu = () => {
     const [userData, refetch, isLoading] = useGetUser()
     const {user} = useContext(AuthContext)
     return (
-        <div>
-           <div className="text-right fixed  w-full right-0 border-r-2 bg-gray-800 border-yellow-400 flex items-center gap-12 justify-between md:justify-end text-white border-b-2 border-t-0 ml-32 p-4">
+        <div >
+           <div className="text-right z-10 md:fixed  w-full right-0 border-r-2 bg-gray-800 border-yellow-400 flex items-center gap-12 justify-between md:justify-end text-white border-b-2 border-t-0 ml-32 p-4">
             <div className="sm:flex gap-8 mr-12 justify-end items-center">
                 <div className="flex  gap-8 justify-end items-center">
                     <div className="relative ">
