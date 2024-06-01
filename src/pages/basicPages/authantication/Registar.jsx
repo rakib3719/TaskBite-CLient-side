@@ -4,14 +4,25 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
+import useCommonAxios from "../../../hook/useCommonAxios";
+
 
 
 const Registar = () => {
     const [regiLoader, setRegLoader] = useState(false);
     const {registar, updatesProfile, loginWithGoogle} = useContext(AuthContext)
+    const commonAxios = useCommonAxios()
     const navigate = useNavigate()
 
-    const signUpGoogle = ()=>{
+
+const saveUserToDB = async (userInfo)=>{
+
+const {data} =await commonAxios.post('/userAdd',userInfo);
+console.log(data);
+
+}
+
+    const signUpGoogle =()=>{
         loginWithGoogle()
         .then(result => {
          
@@ -25,7 +36,8 @@ const Registar = () => {
     role,
     coin
   }
-  console.log(userInfo);
+  saveUserToDB(userInfo)
+
   toast.success('Registar Successful')
 
         })
@@ -53,6 +65,9 @@ coin
 }
 console.log(userInfo);
 
+
+
+
     if(password.length < 6){
         toast.error("Password should be at least 6 characters");
         setRegLoader(false)
@@ -77,8 +92,18 @@ console.log(userInfo);
   
         // 3. Save username and photo in firebase
         await updatesProfile(name, image_url)
-        navigate('/')
-        toast.success('Registar Successful')
+   
+     
+
+   const {data} =  await commonAxios.post('/userAdd', userInfo);
+   console.log(data);
+   toast.success('Registar Successful')
+   navigate('/')
+
+
+
+
+        
         setRegLoader(false)
       } catch (err) {
         console.log(err)

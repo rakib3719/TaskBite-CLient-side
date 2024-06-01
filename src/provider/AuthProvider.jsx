@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import useCommonAxios from "../hook/useCommonAxios";
 
 
 export const AuthContext = createContext(null)
@@ -9,6 +10,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState({})
     const [loader, setLoader] = useState(true)
+    const commonAxios = useCommonAxios()
 
 
     const googleProvider = new GoogleAuthProvider()
@@ -44,11 +46,31 @@ const logOut = ()=>{
     return signOut(auth)
 }
 
+
+
 useEffect(()=>{
 
 const unSUbscribe = onAuthStateChanged(auth, (currentUser)=>{
 setLoader(false)
 setUser(currentUser)
+
+if(currentUser){
+const userInfo = {email: currentUser.email};
+commonAxios.post('/jwt',  userInfo)
+.then(res => {
+
+localStorage.setItem('access-token', res.data.token);
+
+})
+
+
+
+
+}
+else{
+    localStorage.removeItem('access-token')
+}
+
 setLoader(false)
 
 

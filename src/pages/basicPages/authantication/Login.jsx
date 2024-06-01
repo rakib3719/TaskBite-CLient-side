@@ -2,11 +2,20 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import useCommonAxios from "../../../hook/useCommonAxios";
 
 
 const Login = () => {
-    const {loginWithGoogle} = useContext(AuthContext);
+    const {loginWithGoogle, login} = useContext(AuthContext);
+const commonAxios = useCommonAxios()
+
+    const saveUserToDB = async (userInfo)=>{
+
+        const {data} =await commonAxios.post('/userAdd',userInfo);
+        console.log(data);
+        
+        }
 
     const googleLogin = ()=>{
         loginWithGoogle()
@@ -22,20 +31,54 @@ const Login = () => {
     role,
     coin
   }
-  console.log(userInfo);
-  toast.success('Login Successful')
+  saveUserToDB(userInfo)
+   toast.success('Login Successful')
 
         })
         .catch(err =>{
             console.log(err.message);
         })
     }
+
+const loginHandle = e =>{
+
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    login(email, password)
+    .then(result => {
+        console.log(result);
+        toast.success("Login Successfully")
+    
+        // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
+    })
+    .catch(error => {
+        console.log(error.message);
+      
+        let storeError=[]
+        let errorLetter=error.message.split(' ')[2].split('')
+        for (let i = 6; i < errorLetter.length-2; i++) {
+         
+         storeError.push(errorLetter[i])
+     
+         
+        }
+    
+        error.message=="Firebase: Error (auth/invalid-credential)." ? toast.error( "Invalid Email Or Password"): storeError ? toast.error(storeError.join('')) : toast.error(error.message)
+    })
+
+
+
+}
+
+
     return (
         <div  className="bg-black pt-20 pb-20">
-
+<Toaster></Toaster>
             <div className="login mx-auto w-[85%] md:w-1/2 md:ml-auto p-8 text-white backdrop-blur-3xl md:backdrop-blur-none md:mr-16 ">
       
-            <form  >
+            <form  onSubmit={loginHandle}>
       
               <h1 className="font-bold text-3xl text-white">Login</h1>
               <p>Welcome to us!</p>
