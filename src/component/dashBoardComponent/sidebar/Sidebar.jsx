@@ -1,19 +1,23 @@
 import { useState } from 'react'
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
-import { BsFillHouseAddFill } from 'react-icons/bs'
+
 
 import { AiOutlineBars } from 'react-icons/ai'
-import { BsGraphUp } from 'react-icons/bs'
+
 import { NavLink } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
-import { MdHomeWork } from 'react-icons/md'
+
 import DashbordMenu from '../DashbordMenu'
 import useGetUser from '../../../hook/useGetUser'
+import WorkerMenu from '../menu/WorkerMenu'
+import CreatorMenu from '../menu/CreatorMenu'
+import AdminMenu from '../menu/AdminMenu'
 
 const Sidebar = () => {
     const [usesrData, refetch] = useGetUser()
+    console.log(usesrData);
 
   const [isActive, setActive] = useState(false)
 
@@ -21,10 +25,6 @@ const Sidebar = () => {
   const handleToggle = () => {
     setActive(!isActive)
   }
-
-
-
-
   return (
     <>
       {/* Small Screen Navbar */}
@@ -66,7 +66,16 @@ const Sidebar = () => {
             {/* Conditional toggle button here.. */}
 
             {/*  Menu Items */}
-           
+           {/* <WorkerMenu></WorkerMenu> */}
+           {/* <CreatorMenu></CreatorMenu> */}
+     
+
+
+{
+
+    usesrData.role === "admin"? <AdminMenu></AdminMenu>: usesrData.role ===  "worker"? <WorkerMenu></WorkerMenu> : <CreatorMenu></CreatorMenu>
+}
+
           </div>
         </div>
 
