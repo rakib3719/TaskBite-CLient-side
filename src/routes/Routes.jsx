@@ -10,6 +10,8 @@ import AdminPrivateRoute from "../secureRoutes/AdminPrivateRoute";
 import AddTask from "../pages/dashBoardPages/addTask/AddTask";
 import CreatorPrivateRoutes from "../secureRoutes/CreatorPrivateRoutes";
 import MyTask from "../pages/dashBoardPages/myTaskForCreator/MyTask";
+import PurcessCoin from "../pages/dashBoardPages/purcessCoin/PurcessCoin";
+import Payment from "../pages/dashBoardPages/payment/Payment";
 
 export  const router = createBrowserRouter([
 {
@@ -78,7 +80,19 @@ element:<CreatorPrivateRoutes>
     {
 
         path:'purcessCoin',
-        
+        element:<CreatorPrivateRoutes>
+
+<PurcessCoin></PurcessCoin>
+        </CreatorPrivateRoutes>
+    },
+    
+    
+    {
+
+path:'pay/:price',
+element:<Payment></Payment>
+
+
     }
 
 

@@ -113,7 +113,7 @@ myAllTask.map((data, idx) =>  <tr key={data._id}>
   <td>{data.quantity}</td>
   <td>{data.payable_amount}</td>
   {/* <td  className="bg-[#130f40] rounded  py-2 px-2  text-center   sm:px-5 sm:py-3 text-white  btn "> <MdSystemUpdateAlt /> Update </td> */}
-  <td>  <p className="bg-[#130f40] rounded  py-2 px-2    sm:px-5 sm:py-3 text-white  btn ">  <MdSystemUpdateAlt /> Update</p> </td>
+  <td>  <p className="bg-[#6F4FF2] rounded  py-2 px-2    sm:px-5 sm:py-3 text-white  btn ">  <MdSystemUpdateAlt /> Update</p> </td>
 
 
 <td>  <p  onClick={()=> deleteHandle(data._id, data.payable_amount, data.quantity)} className="bg-red-800 rounded  py-2 px-2    sm:px-5 sm:py-3 text-white  btn ">   <MdDeleteForever /> Delete</p> </td>
