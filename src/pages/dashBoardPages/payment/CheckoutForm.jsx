@@ -2,14 +2,17 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
+import toast, { Toaster } from 'react-hot-toast';
+import useIncreaseCoin from '../../../hook/useIncreaseCoin';
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({ price, purcessCoin }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState('');
   const [clientSecret, setClientSecret] = useState('');
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
+  const [increaseCoin] = useIncreaseCoin()
 
   useEffect(() => {
     axiosSecure.post('/create-payment-intent', { price: price })
@@ -66,10 +69,30 @@ const CheckoutForm = ({ price }) => {
       console.log('Payment Intent:', paymentIntent);
       setError('');
     }
+
+    if (paymentIntent && paymentIntent.status === "succeeded") {
+      toast.success("Payment Successful");
+
+      // update coin
+      increaseCoin(parseInt(purcessCoin));
+
+      // save to database
+      const paymentData = {
+        email: user?.email,
+        paid_amount: price,
+        purcess_coin: purcessCoin,
+        date: new Date(),
+        trxId: paymentIntent.id
+      }
+
+      const res = await axiosSecure.post('/paymentHistory', paymentData);
+      console.log(res.data);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mt-12 mx-auto p-6 bg-gray-800 rounded-lg shadow-md">
+      <Toaster />
       <div className="mb-4">
         <CardElement
           options={{

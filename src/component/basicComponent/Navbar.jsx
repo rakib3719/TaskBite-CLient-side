@@ -28,7 +28,7 @@ const nav = <>
 const loggedNav = <div className="flex items-center">
 
 <li><NavLink to='/'>Home</NavLink></li>
-<li><NavLink to='/dashboard'> Dashboard
+<li><NavLink to='/dashboard/creatorHome'> Dashboard
 </NavLink></li>
 <li><NavLink to='/dashboard'>  Available Coin
 </NavLink></li>

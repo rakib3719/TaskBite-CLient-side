@@ -59,7 +59,9 @@ const Sidebar = () => {
           <div>
             <div className='w-full hidden md:flex px-4  rounded-lg justify-center items-center mx-auto'>
             
-              <a className="btn btn-ghost text-white text-xl">TaskBite</a>
+            <Link to='/'>
+            <a className="btn btn-ghost text-white text-xl">TaskBite</a>
+            </Link>
             
             </div>
           </div>

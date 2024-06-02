@@ -58,6 +58,7 @@ try{
     const completion_date = startDate.toLocaleDateString();
     const creator_name = user?.displayName;
     const creator_email = user?.email;
+
     
     
     
@@ -72,7 +73,8 @@ try{
     task_info,
     completion_date,
     creator_name,
-    creator_email
+    creator_email,
+  
     
     
     }

@@ -4,7 +4,7 @@ import Sidebar from "../../component/dashBoardComponent/sidebar/Sidebar";
 import { IoIosNotifications } from "react-icons/io";
 import DashbordMenu from "../../component/dashBoardComponent/DashbordMenu";
 import useGetUser from "../../hook/useGetUser";
-import { ColorRing } from "react-loader-spinner";
+
 import RingLoading from "../../component/loader/RingLoading";
 
 <IoIosNotifications />

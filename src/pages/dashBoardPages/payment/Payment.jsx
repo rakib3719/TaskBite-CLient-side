@@ -2,7 +2,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useParams } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
-import { Toaster } from "react-hot-toast";
+
 
 
 
@@ -17,12 +17,13 @@ const Payment = () => {
     return (
         <div>
 
-            <Toaster></Toaster>
+   
      <Elements stripe={stripePromise}>
 
 <CheckoutForm
 
 price={price}
+purcessCoin={purcessCoin}
 
 ></CheckoutForm>
 

@@ -12,6 +12,9 @@ import CreatorPrivateRoutes from "../secureRoutes/CreatorPrivateRoutes";
 import MyTask from "../pages/dashBoardPages/myTaskForCreator/MyTask";
 import PurcessCoin from "../pages/dashBoardPages/purcessCoin/PurcessCoin";
 import Payment from "../pages/dashBoardPages/payment/Payment";
+import PaymentHistory from "../pages/dashBoardPages/payment/PaymentHistory";
+import HomeCreator from "../pages/dashBoardPages/home/HomeCreator";
+import AllTask from "../pages/dashBoardPages/worker/tasklist/AllTask";
 
 export  const router = createBrowserRouter([
 {
@@ -90,9 +93,37 @@ element:<CreatorPrivateRoutes>
     {
 
 path:'pay/:price',
-element:<Payment></Payment>
+element:<CreatorPrivateRoutes>
+
+<Payment></Payment>
+</CreatorPrivateRoutes>
 
 
+    },
+    {
+        path:'paymentHistory',
+        element: <CreatorPrivateRoutes>
+
+
+<PaymentHistory></PaymentHistory>
+        </CreatorPrivateRoutes>
+    },
+
+    {
+        path:'creatorHome',
+        element:<CreatorPrivateRoutes>
+
+            <HomeCreator></HomeCreator>
+        </CreatorPrivateRoutes>
+    },
+
+    // worker routes
+
+
+    {
+path:'allTaksList',
+element:<AllTask></AllTask>
+    
     }
 
 
