@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import { FaUser, FaCalendarAlt, FaDollarSign, FaTasks } from 'react-icons/fa';
 import { MdVisibility } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
+
 
 const AllTaskCard = ({ task }) => {
+    const navigate = useNavigate()
   return (
     <div className="lg:max-w-sm w-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105">
       <img
@@ -27,9 +30,11 @@ const AllTaskCard = ({ task }) => {
           <FaDollarSign className="text-xl text-yellow-500" /> Payable Amount: ${task.payable_amount}
         </p>
         <hr className="my-4 border-gray-300" />
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md flex items-center justify-center gap-2 transition-colors duration-300">
+     
+       <button onClick={()=> navigate(`/dashboard/taskDetails/${task._id}`)} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md flex items-center justify-center gap-2 transition-colors duration-300">
           <MdVisibility className="text-xl" /> View Details
         </button>
+      
       </div>
     </div>
   );

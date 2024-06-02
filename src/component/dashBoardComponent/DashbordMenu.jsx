@@ -19,7 +19,7 @@ const DashbordMenu = () => {
                             <FaCoins className="text-gold text-xl" />
                         </p>
                         
-                        <p className="text-lg font-semibold">Admin</p>
+                        <p className="text-lg font-semibold">{userData?.role}</p>
                     </div>
                  
                 </div>
