@@ -9,6 +9,7 @@ import Forbidden from "../errorPage/Forbidden";
 import AdminPrivateRoute from "../secureRoutes/AdminPrivateRoute";
 import AddTask from "../pages/dashBoardPages/addTask/AddTask";
 import CreatorPrivateRoutes from "../secureRoutes/CreatorPrivateRoutes";
+import MyTask from "../pages/dashBoardPages/myTaskForCreator/MyTask";
 
 export  const router = createBrowserRouter([
 {
@@ -63,6 +64,21 @@ element:<CreatorPrivateRoutes>
 <AddTask></AddTask>
 </CreatorPrivateRoutes>
 
+    },
+
+    {
+
+path:'myTask',
+element:<CreatorPrivateRoutes>
+
+<MyTask></MyTask>
+</CreatorPrivateRoutes>
+
+    },
+    {
+
+        path:'purcessCoin',
+        
     }
 
 
