@@ -20,7 +20,11 @@ const Payment = () => {
             <Toaster></Toaster>
      <Elements stripe={stripePromise}>
 
-<CheckoutForm></CheckoutForm>
+<CheckoutForm
+
+price={price}
+
+></CheckoutForm>
 
      </Elements>
         </div>

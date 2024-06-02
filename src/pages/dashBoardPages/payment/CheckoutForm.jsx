@@ -1,13 +1,29 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider';
+import useAxiosSecure from '../../../hook/useAxiosSecure';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ price }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState('');
+  const [clientSecret, setClientSecret] = useState('');
+  const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(() => {
+    axiosSecure.post('/create-payment-intent', { price: price })
+      .then(res => {
+        console.log('Client Secret:', res.data.clientSecret);
+        setClientSecret(res.data.clientSecret);
+      })
+      .catch(err => {
+        console.error('Error fetching client secret:', err);
+        setError('Failed to initialize payment.');
+      });
+  }, [axiosSecure, price]);
 
   const handleSubmit = async (event) => {
-    // Block native form submission.
     event.preventDefault();
 
     if (!stripe || !elements) {
@@ -19,18 +35,35 @@ const CheckoutForm = () => {
       return;
     }
 
-    // Add your payment processing logic here
-
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    // Create Payment Method
+    const { error: createError, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card,
+      billing_details: {
+        email: user?.email || 'anonymous',
+        name: user?.displayName || 'anonymous'
+      }
     });
 
-    if (error) {
-      console.log('error', error);
-      setError(error.message);
+    if (createError) {
+      console.error('Create Payment Method Error:', createError);
+      setError(createError.message);
+      return;
     } else {
-      console.log('PaymentMethod', paymentMethod);
+      console.log('PaymentMethod:', paymentMethod);
+      setError('');
+    }
+
+    // Confirm Card Payment
+    const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: paymentMethod.id
+    });
+
+    if (confirmError) {
+      console.error('Confirm Card Payment Error:', confirmError);
+      setError(confirmError.message);
+    } else {
+      console.log('Payment Intent:', paymentIntent);
       setError('');
     }
   };
@@ -58,7 +91,7 @@ const CheckoutForm = () => {
       </div>
       <button
         type="submit"
-        disabled={!stripe}
+        disabled={!stripe || !elements}
         className="w-full py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 disabled:bg-gray-600 disabled:cursor-not-allowed"
       >
         Pay
