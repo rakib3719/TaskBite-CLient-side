@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import useGetUser from "../../hook/useGetUser";
 
 
 
 
 const Navbar = () => {
+  const [userData] = useGetUser()
   const {user,logOut} = useContext(AuthContext)
 
 
@@ -28,7 +30,7 @@ const nav = <>
 const loggedNav = <div className="flex items-center">
 
 <li><NavLink to='/'>Home</NavLink></li>
-<li><NavLink to='/dashboard/creatorHome'> Dashboard
+<li><NavLink to={userData.role ==="taskCreator" ? "/dashboard/creatorHome": userData.role==="worker"? "/dashboard/workerHome":userData.role==="admin" && "/dashboard"}> Dashboard
 </NavLink></li>
 <li><NavLink to='/dashboard'>  Available Coin
 </NavLink></li>

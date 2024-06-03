@@ -14,7 +14,11 @@ const MySubmission = () => {
       return res.data;
     },
   });
-
+  if(submissionData.length === 0){
+    return <div  className="flex items-center justify-center">
+        <h1  className="text-3xl text-center text-red-800"> You are not submit any task  </h1>
+    </div>
+}
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-center font-bold text-3xl mb-8 text-gray-800">My Submission</h1>

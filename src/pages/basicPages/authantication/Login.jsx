@@ -25,11 +25,13 @@ const commonAxios = useCommonAxios()
             const email = result.user.email;
             const role = "worker";
             const coin = 10;
+            const  image_url = result.user.photoURL
   const userInfo = {
     name,
     email,
     role,
-    coin
+    coin,
+    image_url 
   }
   saveUserToDB(userInfo)
    toast.success('Login Successful')

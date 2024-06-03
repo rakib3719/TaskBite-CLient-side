@@ -38,7 +38,7 @@ const task_Detail = form.detail.value;
 const quantity = form.quantity.value;
 const payable_amount = form.payable_amount.value;
 const img = form.image.files[0];
-const task_info = form.info.value;
+const  submission_Details = form.info.value;
 
 
 const cost = quantity * payable_amount;
@@ -58,6 +58,7 @@ try{
     const completion_date = startDate.toLocaleDateString();
     const creator_name = user?.displayName;
     const creator_email = user?.email;
+    const current_time = new Date()
 
     
     
@@ -70,10 +71,11 @@ try{
     quantity,
     payable_amount,
     task_img,
-    task_info,
+    submission_Details,
     completion_date,
     creator_name,
     creator_email,
+    current_time
   
     
     

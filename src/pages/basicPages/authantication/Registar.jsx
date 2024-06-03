@@ -5,6 +5,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
 import useCommonAxios from "../../../hook/useCommonAxios";
+import useGetUser from "../../../hook/useGetUser";
 
 
 
@@ -13,6 +14,7 @@ const Registar = () => {
     const {registar, updatesProfile, loginWithGoogle} = useContext(AuthContext)
     const commonAxios = useCommonAxios()
     const navigate = useNavigate()
+    const [userData, refetch, isLoading] = useGetUser()
 
 
 const saveUserToDB = async (userInfo)=>{
@@ -30,15 +32,22 @@ console.log(data);
             const email = result.user.email;
             const role = "worker";
             const coin = 10;
+            const  image_url = result.user.photoURL
+         
   const userInfo = {
     name,
     email,
     role,
-    coin
+    coin,
+    image_url
   }
   saveUserToDB(userInfo)
 
+
   toast.success('Registar Successful')
+  refetch()
+  navigate('/')
+
 
         })
         .catch(err =>{
@@ -56,14 +65,8 @@ const regFormHandle = async e =>{
     const role = form.role.value;
     const coin = role === 'worker'? 10 : role === "taskCreator" && 50;
 
-const userInfo = {
-name,
-email,
-role,
-coin
 
-}
-console.log(userInfo);
+
 
 
 
@@ -94,11 +97,20 @@ console.log(userInfo);
         await updatesProfile(name, image_url)
    
      
-
+        const userInfo = {
+          name,
+          email,
+          role,
+          coin,
+          image_url
+          
+          }
    const {data} =  await commonAxios.post('/userAdd', userInfo);
    console.log(data);
    toast.success('Registar Successful')
+   refetch()
    navigate('/')
+
 
 
 

@@ -7,13 +7,14 @@ import { FaCoins, FaDollarSign, FaTasks } from "react-icons/fa";
 import useGetUser from "../../../hook/useGetUser";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import RingLoading from "../../../component/loader/RingLoading";
 
 const HomeCreator = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [selectedSubmission, setSelectedSubmission] = useState(null);
 
-  const { data: allPendingData = [], refetch } = useQuery({
+  const { data: allPendingData = [], refetch, isLoading } = useQuery({
     queryKey: ['allPendingData', user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/allPendingData/${user?.email}`);
@@ -23,9 +24,10 @@ const HomeCreator = () => {
 
   // total payment get;
 
-  const {data: totalPayment = [] } = useQuery({
+  const {data: totalPayment = [], isLoading:load } = useQuery({
 
     queryKey:['totalPayment', user?.email],
+  
     queryFn:async()=>{
 const response = axiosSecure.get(`totalPayment/${user?.email}`);
 return response
@@ -36,7 +38,7 @@ return response
   })
 
 
-  const totalPaymentsum = totalPayment.data.reduce((prevValue, value) => prevValue + value, 0);
+  const totalPaymentsum = totalPayment?.data?.reduce((prevValue, value) => prevValue + value, 0);
 
 
 const [userData] = useGetUser()
@@ -164,6 +166,10 @@ try{
 
   };
 
+  if(isLoading || load){
+    return <RingLoading></RingLoading>
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
 
@@ -256,7 +262,7 @@ try{
               <div>
                 <h3 className="text-lg leading-6 font-medium text-gray-900">Submission Details</h3>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">{selectedSubmission.submission_detail}</p>
+                  <p className="text-sm text-gray-500">{selectedSubmission.submission_details}</p>
                 </div>
               </div>
               <div className="mt-5 sm:mt-6">

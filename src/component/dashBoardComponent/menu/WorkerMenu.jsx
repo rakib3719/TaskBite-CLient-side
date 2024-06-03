@@ -12,7 +12,7 @@ const WorkerMenu = () => {
              <nav>
            
               <NavLink
-                to='home'
+                to='workerHome'
                 className={({ isActive }) =>
                   `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                     isActive ? 'bg-gray-300  text-gray-700' : 'text-[#f5f0f0]'
@@ -37,7 +37,7 @@ const WorkerMenu = () => {
 
                 <span className='mx-4 font-medium'>TaskList</span>
               </NavLink>
-              {/* My Listing */}
+       
               <NavLink
                 to='mySubmission'
                 className={({ isActive }) =>
@@ -49,6 +49,18 @@ const WorkerMenu = () => {
                 <VscFileSubmodule className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>My Submissions</span>
+              </NavLink>
+              <NavLink
+                to='withdrawals'
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                    isActive ? 'bg-gray-300  text-gray-700' : 'text-[#f5f0f0]'
+                  }`
+                }
+              >
+                <VscFileSubmodule className='w-5 h-5' />
+
+                <span className='mx-4 font-medium'>Withdrawals</span>
               </NavLink>
             </nav>
         </div>

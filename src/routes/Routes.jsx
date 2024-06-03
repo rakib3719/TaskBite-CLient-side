@@ -17,6 +17,9 @@ import HomeCreator from "../pages/dashBoardPages/home/HomeCreator";
 import AllTask from "../pages/dashBoardPages/worker/tasklist/AllTask";
 import TaskDetails from "../component/dashBoardComponent/allTakCard/TaskDetails";
 import MySubmission from "../pages/dashBoardPages/worker/mySubmission/MySubmission";
+import HomeWorker from "../pages/dashBoardPages/home/workerHome/HomeWorker";
+import Withdrawals from "../component/dashBoardComponent/worker/Withdrawals";
+import UpdateTask from "../component/dashBoardComponent/updateTask/UpdateTask";
 
 export  const router = createBrowserRouter([
 {
@@ -118,6 +121,12 @@ element:<CreatorPrivateRoutes>
             <HomeCreator></HomeCreator>
         </CreatorPrivateRoutes>
     },
+    {
+path:'updateTask/:id',
+element:<CreatorPrivateRoutes>
+    <UpdateTask></UpdateTask>
+</CreatorPrivateRoutes>
+    },
 
     // worker routes
 
@@ -142,6 +151,21 @@ element:<PrivateRoute>
 
 <MySubmission></MySubmission>
 
+        </PrivateRoute>
+    },
+    {
+        path:'workerHome',
+        element: <PrivateRoute>
+
+<HomeWorker></HomeWorker>
+            
+        </PrivateRoute>
+    },{
+
+        path:'withdrawals',
+        element:<PrivateRoute>
+
+<Withdrawals></Withdrawals>
         </PrivateRoute>
     }
 
