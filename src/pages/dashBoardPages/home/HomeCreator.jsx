@@ -21,6 +21,23 @@ const HomeCreator = () => {
     }
   });
 
+  // total payment get;
+
+  const {data: totalPayment = [] } = useQuery({
+
+    queryKey:['totalPayment', user?.email],
+    queryFn:async()=>{
+const response = axiosSecure.get(`totalPayment/${user?.email}`);
+return response
+
+
+
+    }
+  })
+
+
+  const totalPaymentsum = totalPayment.data.reduce((prevValue, value) => prevValue + value, 0);
+
 
 const [userData] = useGetUser()
 
@@ -171,7 +188,7 @@ try{
         <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-between">
           <FaDollarSign className="text-4xl text-green-500" />
           <div className="text-right">
-            <h2 className="text-2xl font-bold">$45</h2>
+            <h2 className="text-2xl font-bold">{ totalPaymentsum }</h2>
             <p className="text-gray-500">Total Payment</p>
           </div>
         </div>
