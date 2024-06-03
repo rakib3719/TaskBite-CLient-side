@@ -79,7 +79,7 @@ try{
     
     }
     
-    
+
     
     
     console.log(taskInfo);
@@ -247,7 +247,7 @@ className="p-2 mt-2 "
 
 <label className="form-control w-full ">
     <div className="label">
-        <span className="label-text text-white font-semibold">Task Info
+        <span className="label-text text-white font-semibold">Submission Info
         </span>
 
     </div>
