@@ -16,6 +16,7 @@ import PaymentHistory from "../pages/dashBoardPages/payment/PaymentHistory";
 import HomeCreator from "../pages/dashBoardPages/home/HomeCreator";
 import AllTask from "../pages/dashBoardPages/worker/tasklist/AllTask";
 import TaskDetails from "../component/dashBoardComponent/allTakCard/TaskDetails";
+import MySubmission from "../pages/dashBoardPages/worker/mySubmission/MySubmission";
 
 export  const router = createBrowserRouter([
 {
@@ -133,6 +134,14 @@ element:<PrivateRoute>
         element: <PrivateRoute>
 
             <TaskDetails></TaskDetails>
+        </PrivateRoute>
+    },
+    {
+        path:'mySubmission',
+        element:<PrivateRoute>
+
+<MySubmission></MySubmission>
+
         </PrivateRoute>
     }
 
