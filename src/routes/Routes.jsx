@@ -20,6 +20,9 @@ import MySubmission from "../pages/dashBoardPages/worker/mySubmission/MySubmissi
 import HomeWorker from "../pages/dashBoardPages/home/workerHome/HomeWorker";
 import Withdrawals from "../component/dashBoardComponent/worker/Withdrawals";
 import UpdateTask from "../component/dashBoardComponent/updateTask/UpdateTask";
+import ManageUsers from "../pages/dashBoardPages/admin/ManageUsers";
+import ManageTask from "../pages/dashBoardPages/admin/ManageTask";
+import AdminHome from "../pages/dashBoardPages/admin/AdminHome";
 
 export  const router = createBrowserRouter([
 {
@@ -53,18 +56,36 @@ export  const router = createBrowserRouter([
 <DashBoardLayout></DashBoardLayout>
 
     </PrivateRoute>,
-    children:[{
+    children:[
+        
+        // admit related route
+        {
 
 path:'manageUser',
 element: 
 
 <AdminPrivateRoute>
-
-<p>this is pppp lorem1000</p>
+<ManageUsers></ManageUsers>
 </AdminPrivateRoute>
 
 
     },
+
+    {
+        path:'manageTask',
+        element:<AdminPrivateRoute>
+
+            <ManageTask></ManageTask>
+        </AdminPrivateRoute>
+    },{
+        path:'adminHome',
+        element: <AdminPrivateRoute>
+
+            <AdminHome></AdminHome>
+        </AdminPrivateRoute>
+    },
+
+    // creator related routes
     {
 
 path:'addTask',
