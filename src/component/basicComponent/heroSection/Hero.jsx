@@ -8,7 +8,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/a11y';
 import HeroSlider from '../../../pages/basicPages/home/HeroSlider';
-import image from '../../../assets/image/Discover.png'
+import image1 from '../../../assets/image/this.png'
+
+
 
 
 const Hero = () => {
@@ -34,12 +36,20 @@ autoplay={{
    
 
 >
-<SwiperSlide   >
-    
-     </SwiperSlide>
-<SwiperSlide   > {image}</SwiperSlide>
-<SwiperSlide   > {image} </SwiperSlide>
-<SwiperSlide   > <HeroSlider></HeroSlider> </SwiperSlide>
+
+
+<SwiperSlide   > <HeroSlider
+
+heading={"Maximize Your Earnings with Every Task Completed"}
+title={'Complete Micro-Tasks and Earn Instant Rewards'}
+photo={image1}
+></HeroSlider> </SwiperSlide>
+<SwiperSlide   > <HeroSlider
+
+heading={"Maximize Your Earnings with Every Task Completed"}
+title={'Complete Micro-Tasks and Earn Instant Rewards'}
+photo={image1}
+></HeroSlider> </SwiperSlide>
 
 
 </Swiper>  

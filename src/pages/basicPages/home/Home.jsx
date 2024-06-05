@@ -5,11 +5,7 @@ import Hero from "../../../component/basicComponent/heroSection/Hero";
 const Home = () => {
     return (
         <div>
-     <Hero>     
-
-
-
-     </Hero>
+     <Hero>  </Hero>
         </div>
     );
 };

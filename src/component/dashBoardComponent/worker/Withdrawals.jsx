@@ -35,6 +35,7 @@ const Withdrawals = () => {
         const payment_system = e.target.paymentSystem.value;
         const withdraw_amount = e.target.amount.value;
         const widthdraw_time = new Date();
+        const payment_number = e.target.acNumber.value;
 
 
         if(withdrawAmount > userData.coin / 20){
@@ -53,6 +54,7 @@ const Withdrawals = () => {
            withdraw_coin,
            payment_system,
            widthdraw_time,
+           payment_number
 
         }
 
@@ -159,7 +161,7 @@ if(data.insertedId){
                         <label htmlFor="accountNumber" className="block text-gray-700 font-bold mb-2">Account Number</label>
                         <input 
                         required
-                            type="text" 
+                            type="number" 
                             id="accountNumber" 
                          name='acNumber'
                             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 

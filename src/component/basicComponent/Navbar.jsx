@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import useGetUser from "../../hook/useGetUser";
+import { FaCoins } from "react-icons/fa";
 
 
 
@@ -19,7 +20,7 @@ const logOutHandle = ()=>{
 
 const nav = <>
 
-<li><NavLink to='/'>Home</NavLink></li>
+
 <li><NavLink to='/login'>Login</NavLink></li>
 <li><NavLink  to='/registar' >Register</NavLink></li>
 <li><NavLink   to='/youtube' >Watch Demo</NavLink></li>
@@ -29,10 +30,10 @@ const nav = <>
 
 const loggedNav = <div className="flex items-center">
 
-<li><NavLink to='/'>Home</NavLink></li>
-<li><NavLink to={userData.role ==="taskCreator" ? "/dashboard/creatorHome": userData.role==="worker"? "/dashboard/workerHome":userData.role==="admin" && "/dashboard"}> Dashboard
+
+<li><NavLink to={userData.role ==="taskCreator" ? "/dashboard/creatorHome": userData.role==="worker"? "/dashboard/workerHome":userData.role==="admin" && "/dashboard/adminHome"}> Dashboard
 </NavLink></li>
-<li><NavLink to='/dashboard'>  Available Coin
+<li><NavLink to='/dashboard'> <FaCoins className="text-yellow-500"></FaCoins>  Available Coin <sup className="text-sm badge badge-primary">{userData?.coin}</sup>
 </NavLink></li>
 
 
@@ -51,7 +52,7 @@ const loggedNav = <div className="flex items-center">
             user?loggedNav: nav}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">TaskBite</a>
+          <NavLink to={'/'} className="btn btn-ghost text-xl">TaskBite</NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

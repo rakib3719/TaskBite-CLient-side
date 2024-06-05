@@ -7,12 +7,10 @@ const Main = () => {
 
 
 
-    const pay = ()=>{
-
-    }
     return (
         <div>
-        <div  className=" w-[94%] md:w-[90%] max-w-7xl mx-auto">
+        {/* <div  className=" w-[94%] md:w-[90%] max-w-7xl mx-auto"> */}
+        <div  className="  max-w-[1820px] mx-auto">
         <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

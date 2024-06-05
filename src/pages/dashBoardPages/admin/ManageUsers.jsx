@@ -63,6 +63,51 @@ axiosSecure.put('/updateUser', updatedInfo)
 
 
 }
+
+
+const deleteUser = (email) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are you sure you want to delete this user?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`deleteUser/${email}`)
+          .then(response => {
+            // Access the data property of the response
+            if (response.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Successfully deleted this user",
+                icon: "success"
+              });
+
+              refetch()
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: "Failed to delete the user",
+                icon: "error"
+              });
+            }
+          })
+          .catch(error => {
+            console.error("Error deleting user:", error);
+            toast.error("Error deleting user: " + error.message);
+          });
+      }
+    });
+  };
+  
+  // Ensure toast is properly
+  
+
+
+
     return (
         <div className="p-4">
             <Toaster></Toaster>
@@ -100,7 +145,10 @@ axiosSecure.put('/updateUser', updatedInfo)
                                 <td className="border border-gray-300 p-2">{data?.role}</td>
                                 <td className="border border-gray-300 p-2">{data?.coin}</td>
                                 <td className="border border-gray-300 p-2">
-                                    <button className="text-red-500 hover:text-red-700 flex items-center">
+                                    <button
+                                    
+                                    onClick={()=> deleteUser(data?.email)}
+                                    className="text-red-500 hover:text-red-700 flex items-center">
                                         <MdDelete className="inline-block mr-1" /> Remove
                                     </button>
                                 </td>
