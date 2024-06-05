@@ -13,6 +13,7 @@ import image1 from '../../../assets/image/this.png'
 
 
 
+
 const Hero = () => {
     return (
         <div>
@@ -38,6 +39,12 @@ autoplay={{
 >
 
 
+<SwiperSlide   > <HeroSlider
+
+heading={"Maximize Your Earnings with Every Task Completed"}
+title={'Complete Micro-Tasks and Earn Instant Rewards'}
+photo={image1}
+></HeroSlider> </SwiperSlide>
 <SwiperSlide   > <HeroSlider
 
 heading={"Maximize Your Earnings with Every Task Completed"}

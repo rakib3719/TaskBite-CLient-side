@@ -78,7 +78,7 @@ user?loggedNav: nav}
               />
 
 
-              <button onClick={logOutHandle} className='btn font-raleway bg-[#C24914] text-white block text-center'>Logout</button>
+              <button onClick={logOutHandle} className='btn font-raleway bg-[#264065] text-white block text-center'>Logout</button>
         
             </div>
 
