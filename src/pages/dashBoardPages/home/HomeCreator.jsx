@@ -44,6 +44,12 @@ return response
 const [userData] = useGetUser()
 
 
+// notification 
+const createNotification = async(notificationInfo)=>{
+ await axiosSecure.post('/notification', notificationInfo);
+
+}
+
 // 
 const updateCoin = async(workerEmail, upCoins)=>{
 
@@ -63,7 +69,7 @@ upCoin,
 
 
 
-const updateStatus = async(id, status, workerEmail, upCoin)=>{
+const updateStatus = async( title, id, status, workerEmail, upCoin,)=>{
 
 const {data} =await axiosSecure.put(`updateStatus/${id}`, {status});
 console.log(data);
@@ -72,7 +78,17 @@ if(data.modifiedCount> 0){
 
 updateCoin(workerEmail, upCoin)
 
+const notificationInfo = {
+  toEmail: workerEmail,
+  message:`Great news! Your task'${title}', has been approved by the task creator. `,
+  time: new Date()
+}
+
+createNotification(notificationInfo)
+
   }
+
+
     Swal.fire({
         title: "Sucess",
         text: `Successfuly ${status}`,
@@ -86,13 +102,15 @@ refetch()
 }
 
 
+
+
 }
 
   const handleViewSubmission = (submission) => {
     setSelectedSubmission(submission);
   };
 
-  const handleApprove =async (id, workerEmail, upCoin) => {
+  const handleApprove =async (title, id, workerEmail, upCoin) => {
 
 try{
 
@@ -106,16 +124,11 @@ try{
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    confirmButtonText: "Yes, Approved it!"
   }).then((result) => {
     if (result.isConfirmed) {
-      // Swal.fire({
-      //   title: "Deleted!",
-      //   text: "Your file has been deleted.",
-      //   icon: "success"
-      // });
-
-      updateStatus(id, "approved", workerEmail, upCoin)
+     
+      updateStatus(title, id, "approved", workerEmail, upCoin, title)
 
      
     }
@@ -133,7 +146,7 @@ try{
 
 
 
-  const handleReject = async(id) => {
+  const handleReject = async(title, id, workerEmail ) => {
   
 
 try{
@@ -148,11 +161,17 @@ try{
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    confirmButtonText: "Yes, rejected it!"
   }).then((result) => {
     if (result.isConfirmed) {
 
-      updateStatus(id, "rejected")
+      updateStatus(title, id, "rejected")
+      const notificationInfo = {
+        toEmail: workerEmail,
+        message:`Your task '${title}' has been rejected by the task creator. `,
+        time: new Date()
+      }
+      createNotification(notificationInfo)
       
     }
   });
@@ -185,7 +204,7 @@ try{
           </div>
         </div>
         <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-between">
-          <FaTasks className="text-4xl text-blue-500" />
+          <FaTasks className="text-4xl text-[#264065 ]" />
           <div className="text-right">
             <h2 className="text-2xl font-bold">{allPendingData.length}</h2>
             <p className="text-gray-500">Pending Tasks</p>
@@ -203,7 +222,7 @@ try{
 
       <h1 className="text-center font-bold text-3xl mt-8 mb-8">Task To Review</h1>
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
-        <table className="table-auto w-full bg-white border-collapse">
+        <table className="table table-xs bg-white border-collapse ">
           <thead className="bg-gray-200">
             <tr>
               <th className="px-4 py-2 border">#</th>
@@ -234,13 +253,15 @@ try{
                 <td className="px-4 py-2 border text-center flex justify-center">
                   <button
                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-l flex items-center w-32"
-                    onClick={() => handleApprove(data._id, data.worker_email, data.payable_amount)}
+                    onClick={() => handleApprove(data?.
+                      task_title,data._id, data?.worker_email, data.payable_amount, data?.title)}
                   >
                     <AiOutlineCheckCircle className="mr-2" /> Approve
                   </button>
                   <button
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-r flex items-center w-32"
-                    onClick={() => handleReject(data._id)}
+                    onClick={() => handleReject(data?.
+                      task_title, data._id, data?.worker_email)}
                   >
                     <AiOutlineCloseCircle className="mr-2" /> Reject
                   </button>
@@ -267,7 +288,7 @@ try{
               </div>
               <div className="mt-5 sm:mt-6">
                 <button
-                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
+                  className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#264065 ] sm:text-sm"
                   onClick={() => setSelectedSubmission(null)}
                 >
                   Close

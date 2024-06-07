@@ -88,7 +88,7 @@ icon: "question",
 showCancelButton: true,
 confirmButtonColor: "#3085d6",
 cancelButtonColor: "#d33",
-confirmButtonText: "Yes, delete it!"
+confirmButtonText: "Payment"
 }).then((result) => {
 if (result.isConfirmed) {
   // Swal.fire({
@@ -119,7 +119,7 @@ if(isLoading || load){
       <h1 className="text-center font-bold text-3xl mt-8 mb-8">States</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-between">
-          <FaUsers className="text-4xl text-blue-500" />
+          <FaUsers className="text-4xl text-[#264065 ]" />
           <div className="text-right">
             <h2 className="text-2xl font-bold">{totalUsers}</h2>
             <p className="text-gray-500">Total Users</p>

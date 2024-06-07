@@ -9,6 +9,9 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/a11y';
 import HeroSlider from '../../../pages/basicPages/home/HeroSlider';
 import image1 from '../../../assets/image/this.png'
+import image2 from '../../../assets/image/business-man-working-from-his-living-room_23-2149007834.jpg'
+import image3 from '../../../assets/image/cover4.jpg'
+import image4 from '../../../assets/image/young-business-typing-netbook-keyboard-listening-music_8353-5973.jpg'
 
 
 
@@ -41,21 +44,27 @@ autoplay={{
 
 <SwiperSlide   > <HeroSlider
 
-heading={"Maximize Your Earnings with Every Task Completed"}
-title={'Complete Micro-Tasks and Earn Instant Rewards'}
+heading={" Empower Your Freelance Journey with Us"}
+title={' Discover and Complete High-Paying Tasks to Boost Your Freelance Career, Achieve Your Goals, and Maximize Your Earning Potential'}
 photo={image1}
 ></HeroSlider> </SwiperSlide>
 <SwiperSlide   > <HeroSlider
 
-heading={"Maximize Your Earnings with Every Task Completed"}
-title={'Complete Micro-Tasks and Earn Instant Rewards'}
-photo={image1}
+heading={"Seamless Task Management System for You"}
+title={'Create, Track, and Review Tasks with Ease Using Our Intuitive and User-Friendly Platform Designed for Efficient Task Management'}
+photo={image2}
 ></HeroSlider> </SwiperSlide>
 <SwiperSlide   > <HeroSlider
 
-heading={"Maximize Your Earnings with Every Task Completed"}
-title={'Complete Micro-Tasks and Earn Instant Rewards'}
-photo={image1}
+heading={"Efficient Task Submission Process Here"}
+title={'Submit Tasks, Receive Instant Feedback, and Track Your Progress Towards Approval and Payment with Our Streamlined Submission System'}
+photo={image3}
+></HeroSlider> </SwiperSlide>
+<SwiperSlide   > <HeroSlider
+
+heading={" Join Our Growing Global Community Now"}
+title={'Collaborate with Task Creators and Workers from Around the World to Achieve Greater Success and Foster Professional Relationships'}
+photo={image4}
 ></HeroSlider> </SwiperSlide>
 
 

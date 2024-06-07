@@ -1,4 +1,3 @@
-
 import { useQuery } from '@tanstack/react-query';
 import { FaUser, FaCalendarAlt, FaDollarSign } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
@@ -7,84 +6,78 @@ import RingLoading from '../../loader/RingLoading';
 import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import Countdown from 'react-countdown';
 
 const TaskDetails = () => {
+  const { user } = useContext(AuthContext);
+  const { id } = useParams();
+  const axiosSecure = useAxiosSecure();
 
+  const { data: task = {}, isLoading } = useQuery({
+    queryKey: ['taskDetails', id],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`taskDetails/${id}`);
+      return res.data;
+    },
+  });
 
-  // Static hardcoded task data
- 
-const {user} = useContext(AuthContext)
-  const id = useParams().id;
-  console.log(id);
-  const axiosSecure = useAxiosSecure()
-
-  const {data:task={}, isLoading} = useQuery({
-
-
-    queryKey:['taskDetails'],
-    queryFn: async()=>{
-
-const res = await axiosSecure.get(`taskDetails/${id}`)
-return res.data
-
-
-    }
-  })
-  console.log(task);
-
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const subMissionDetails = event.target.submissionDetails.value
+    const subMissionDetails = event.target.submissionDetails.value;
     const submissionData = {
-        
       task_id: task._id,
       task_title: task.title,
       task_detail: task.task_Detail,
       task_img_url: task.task_img,
       payable_amount: task.payable_amount,
       worker_email: user?.email,
-      submission_details:  subMissionDetails,
+      submission_details: subMissionDetails,
       worker_name: user?.displayName,
       creator_name: task.creator_name,
       creator_email: task.creator_email,
-      current_date: new Date(),
-      status: "pending"
+      current_date: new Date().toISOString(),
+      status: 'pending',
     };
 
-   
-try{
+    try {
+      const { data } = await axiosSecure.post('/addSubmission', submissionData);
 
-    const {data} = await axiosSecure.post('/addSubmission',submissionData );
-  
-    if(data.insertedId){
-
-        toast.success("Submisson successfully")
+      if (data.insertedId) {
+        toast.success('Submission successful');
+        const notificationInfo = {
+          toEmail: task.creator_email,
+          message: `${user?.displayName} has submitted a task. You can now approve or reject it.`,
+          time: new Date().toISOString(),
+        };
+        createNotification(notificationInfo);
+      }
+    } catch (err) {
+      toast.error(err.message);
     }
-
-}catch(err){
-
-    toast.error(err.message)
-}
-
   };
 
-  if(isLoading){
-    return <RingLoading></RingLoading>
+  const createNotification = async (notificationInfo) => {
+    await axiosSecure.post('/notification', notificationInfo);
+  };
+
+  if (isLoading) {
+    return <RingLoading />;
   }
 
   return (
-    <div className=" bg-gray-100 flex flex-col items-center sm:p-6">
+    <div className="bg-gray-100 flex flex-col items-center sm:p-6">
       <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
-        <Toaster></Toaster>
+        <Toaster />
         <h2 className="text-3xl font-bold mb-4 text-gray-800">{task.title}</h2>
+        <Countdown date={new Date(task.completion_date)} />
         <div className="mb-4">
           <img src={task.task_img} alt="Task" className="w-full h-64 object-cover rounded-md" />
         </div>
-        <p className="text-lg text-gray-700 mb-4"> Task Details: {task.task_Detail}</p>
+        <p className="text-lg text-gray-700 mb-4">Task Details: {task.task_Detail}</p>
         <div className="flex flex-wrap mb-6">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
             <div className="flex items-center">
-              <FaUser className="text-blue-500 text-xl mr-2" />
+              <FaUser className="text-[#264065] text-xl mr-2" />
               <div>
                 <p className="text-gray-600">Creator</p>
                 <p className="text-gray-800 font-semibold">{task.creator_name}</p>
@@ -104,9 +97,8 @@ try{
             <div className="flex items-center">
               <FaCalendarAlt className="text-green-500 text-xl mr-2" />
               <div>
-                <p className="text-gray-600">Current Date</p>
-                <p className="text-gray-800 font-semibold">{task.completion_date
-}</p>
+                <p className="text-gray-600">Completion Date</p>
+                <p className="text-gray-800 font-semibold">{new Date(task.completion_date).toLocaleDateString()}</p>
               </div>
             </div>
           </div>
@@ -118,15 +110,15 @@ try{
             </label>
             <textarea
               id="submissionDetails"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#264065]"
               rows="5"
-          name='submissionDetails'
+              name="submissionDetails"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition-colors duration-300"
+            className="w-full bg-[#1b304f] hover:bg-[#051b3b] text-white py-2 rounded-md transition-colors duration-300"
           >
             Submit
           </button>

@@ -48,7 +48,7 @@ if(load || isLoading){
           </div>
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
-          <FaTasks className="text-4xl text-blue-500" />
+          <FaTasks className="text-4xl text-[#264065 ]" />
           <div className="text-right">
             <h2 className="text-2xl font-bold">{totalSubmission?.count}</h2>
             <p className="text-gray-500">Total Submissions</p>

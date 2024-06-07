@@ -1,3 +1,5 @@
+
+import PropTypes from 'prop-types';
 const FeatureCard = ({ icon: Icon, title, description }) => {
     return (
         <div className="relative bg-gradient-to-br  border rounded-lg   transition transform hover:scale-105 hover:shadow-sm p-6 m-5">
@@ -15,4 +17,10 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
     );
 };
 
+FeatureCard.propTypes = {
+    icon: PropTypes.icon,
+    title: PropTypes.title,
+    description: PropTypes.string
+
+};
 export default FeatureCard;

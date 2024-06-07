@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { GoTasklist } from "react-icons/go";
 import { VscFileSubmodule } from "react-icons/vsc";
+import { PiHandWithdrawFill } from "react-icons/pi";
 
 
 
@@ -58,7 +59,7 @@ const WorkerMenu = () => {
                   }`
                 }
               >
-                <VscFileSubmodule className='w-5 h-5' />
+                <PiHandWithdrawFill  className='w-5 h-5' />
 
                 <span className='mx-4 font-medium'>Withdrawals</span>
               </NavLink>

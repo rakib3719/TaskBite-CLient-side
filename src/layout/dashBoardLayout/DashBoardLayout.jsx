@@ -18,7 +18,7 @@ if(isLoading){
 }
 
     return (
-        <div  className="max-w-7xl mx-auto" >
+        <div  className="w-[94%] md:w-[90%] max-w-7xl mx-auto " >
        
 <div className="hidden md:block">
 <DashbordMenu

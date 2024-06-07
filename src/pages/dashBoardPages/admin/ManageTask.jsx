@@ -108,12 +108,12 @@ const ManageTask = () => {
                                 <td className="p-2 border border-gray-300 text-center">{ data.quantity > 0 ? "Available" : "Not Available"
 }</td>
                                 <td className="p-2 border border-gray-300 text-center">
-                                    <button
+                                    <buttonp
                                         onClick={() => handleViewTask(data)}
-                                        className="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded flex items-center justify-center"
+                                        className="bg-[#264065] hover:bg-blue-700 text-white py-1 px-2 rounded flex items-center justify-center"
                                     >
                                         <MdVisibility className="mr-1" /> View Task
-                                    </button>
+                                    </buttonp>
                                 </td>
                                 <td  onClick={()=> taskDelete (data._id)} className="p-2 border border-gray-300 text-center">
                                     <button className="bg-red-600 hover:bg-red-800 text-white py-1 px-2 rounded flex items-center justify-center">

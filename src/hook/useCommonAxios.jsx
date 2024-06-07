@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const commonAxios = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://task-bite-server-side.vercel.app',
 
 
   })

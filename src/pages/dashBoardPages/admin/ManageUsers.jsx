@@ -22,6 +22,13 @@ const ManageUsers = () => {
     if (isLoading) {
         return <RingLoading />;
     }
+
+    // notification
+    const createNotification = async(notificationInfo)=>{
+        await axiosSecure.post('/notification', notificationInfo);
+       
+       }
+
 const updateRole = (email, role, name)=>{
 
 
@@ -50,6 +57,13 @@ axiosSecure.put('/updateUser', updatedInfo)
 .then(result => {
     if(result.data.modifiedCount> 0){
       Swal.fire(`${name} Now an ${role}`, "", "success");
+      const notificationInfo = {
+
+        toEmail: email,
+        message: `An admin update your role  worker to ${role}`,
+        time: new Date()
+      }
+      createNotification(notificationInfo)
       refetch()
     }
 })
@@ -85,6 +99,13 @@ const deleteUser = (email) => {
                 text: "Successfully deleted this user",
                 icon: "success"
               });
+              const notificationInfo = {
+
+                toEmail: email,
+                message: `An admin Remove you from taskBite`,
+                time: new Date()
+              }
+              createNotification(notificationInfo)
 
               refetch()
             } else {
