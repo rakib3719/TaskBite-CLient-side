@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import useGetUser from '../hook/useGetUser';
 import RingLoading from '../component/loader/RingLoading';
@@ -21,7 +21,7 @@ const CreatorPrivateRoutes = ({children}) => {
         return children
     }
 if(!user){
-    navigate('/login')
+    return <Navigate state={currentLocation}  to='/login' ></Navigate>
 }
 
 navigate('/forbidden')

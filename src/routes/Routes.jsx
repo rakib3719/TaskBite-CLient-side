@@ -23,6 +23,7 @@ import UpdateTask from "../component/dashBoardComponent/updateTask/UpdateTask";
 import ManageUsers from "../pages/dashBoardPages/admin/ManageUsers";
 import ManageTask from "../pages/dashBoardPages/admin/ManageTask";
 import AdminHome from "../pages/dashBoardPages/admin/AdminHome";
+import WorkerPrivateRoute from "../secureRoutes/WorkerPrivateRoute";
 
 export  const router = createBrowserRouter([
 {
@@ -154,40 +155,52 @@ element:<CreatorPrivateRoutes>
 
     {
 path:'allTaksList',
-element:<PrivateRoute>
-    <AllTask></AllTask>
-</PrivateRoute>
+element:
+    <WorkerPrivateRoute>
+        <AllTask></AllTask>
+    </WorkerPrivateRoute>
+
     
     },
     {
         path:'taskDetails/:id',
-        element: <PrivateRoute>
+        element: 
 
-            <TaskDetails></TaskDetails>
-        </PrivateRoute>
+            <WorkerPrivateRoute>
+                <TaskDetails></TaskDetails>
+            </WorkerPrivateRoute>
+       
     },
     {
         path:'mySubmission',
-        element:<PrivateRoute>
+        element:
+
+<WorkerPrivateRoute>
 
 <MySubmission></MySubmission>
+</WorkerPrivateRoute>
 
-        </PrivateRoute>
+    
     },
     {
         path:'workerHome',
-        element: <PrivateRoute>
+        element: 
 
+<WorkerPrivateRoute>
 <HomeWorker></HomeWorker>
+</WorkerPrivateRoute>
             
-        </PrivateRoute>
+        
     },{
 
         path:'withdrawals',
-        element:<PrivateRoute>
+        element:
+
+<WorkerPrivateRoute>
 
 <Withdrawals></Withdrawals>
-        </PrivateRoute>
+</WorkerPrivateRoute>
+      
     }
 
 

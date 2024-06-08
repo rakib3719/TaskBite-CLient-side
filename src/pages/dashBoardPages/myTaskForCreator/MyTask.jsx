@@ -114,7 +114,7 @@ const navigate = useNavigate()
                   <td>
                     <button
                   onClick={()=> navigate(`/dashboard/updateTask/${data._id}`)}
-                      className="bg-[#6F4FF2] rounded py-2 px-2 sm:px-5 sm:py-3 text-white btn cursor-pointer"
+                      className="bg-[#264065] rounded py-2 px-2 sm:px-5 sm:py-3 text-white btn cursor-pointer"
                     >
                       <MdSystemUpdateAlt /> Update
                     </button>

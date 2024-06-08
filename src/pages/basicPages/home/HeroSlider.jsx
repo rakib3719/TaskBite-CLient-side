@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import img2 from '../../../assets/image/this.png'
 import img from '../../../assets/image/unsplash_RnCPiXixooY.png'
+import { Link } from 'react-router-dom';
 
 const HeroSlider = ({heading, title,photo}) => {
     return (
@@ -15,8 +16,8 @@ const HeroSlider = ({heading, title,photo}) => {
                             <br className="hidden md:inline lg:hidden" /> {title}
                         </p>
                         <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                            <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded bg-[#264065] text-white">Go To Dashboard</a>
-                            <a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded text-white border-white">Registration</a>
+                            <Link rel="noopener noreferrer" to="dashboard/adminHome" className="px-8 py-3 text-lg font-semibold rounded bg-[#264065] text-white">Go To Dashboard</Link>
+                            <Link to={'/registar'} rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded text-white border-white">Registration</Link>
                         </div>
                     </div>
                     <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">

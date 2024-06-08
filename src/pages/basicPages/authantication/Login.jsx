@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import useCommonAxios from "../../../hook/useCommonAxios";
@@ -9,6 +9,9 @@ import useCommonAxios from "../../../hook/useCommonAxios";
 const Login = () => {
     const {loginWithGoogle, login} = useContext(AuthContext);
 const commonAxios = useCommonAxios()
+const navigate = useNavigate();
+const currentLoacation = useLocation();
+console.log(currentLoacation);
 
     const saveUserToDB = async (userInfo)=>{
 
@@ -35,6 +38,7 @@ const commonAxios = useCommonAxios()
   }
   saveUserToDB(userInfo)
    toast.success('Login Successful')
+   setTimeout(()=> { navigate(currentLoacation?.state || '/')}, 2000)
 
         })
         .catch(err =>{
@@ -53,7 +57,7 @@ const loginHandle = e =>{
         console.log(result);
         toast.success("Login Successfully")
     
-        // setTimeout(()=> { navigate(currentLocation.state)}, 2000)
+        setTimeout(()=> { navigate(currentLoacation?.state || '/')}, 2000)
     })
     .catch(error => {
         console.log(error.message);
@@ -76,9 +80,9 @@ const loginHandle = e =>{
 
 
     return (
-        <div  className="bg-black pt-20 pb-20">
+        <div  className="loginBg pt-20 pb-20">
 <Toaster></Toaster>
-            <div className="login mx-auto w-[85%] md:w-1/2 md:ml-auto p-8 text-white backdrop-blur-3xl md:backdrop-blur-none md:mr-16 ">
+            <div className="login mx-auto w-[85%] md:ml-auto p-8 text-white backdrop-blur-3xl md:backdrop-blur-none  md:w-[60%]  ">
       
             <form  onSubmit={loginHandle}>
       

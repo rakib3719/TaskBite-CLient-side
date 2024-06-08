@@ -55,7 +55,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-gray-800 flex w-full justify-between md:hidden">
+      <div className="bg-gray-800  flex w-full justify-between md:hidden">
         <div className="block cursor-pointer p-4 font-bold">
           <Link to="/" className="btn btn-ghost text-white text-xl">
             TaskBite
@@ -114,19 +114,19 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-[#2E2E2E] w-64 space-y-6 px-4 py-6 absolute inset-y-0 left-0 transform ${
+        className={`z-10 mt-12 md:fixed flex flex-col justify-between overflow-x-hidden bg-[#2E2E2E] w-64 space-y-6 px-4 py-6 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         } md:translate-x-0 transition duration-200 ease-in-out`}
       >
-        <div>
-          <div className="hidden md:flex px-4 rounded-lg justify-center items-center mx-auto mb-4">
+        <div className=''>
+          {/* <div className="hidden  w-full px-16 0 md:flex  rounded-lg justify-center items-center mx-auto mb-4">
             <Link to="/" className="btn btn-ghost text-white text-xl">
               TaskBite
             </Link>
-          </div>
+          </div> */}
 
           {/* Nav Items */}
-          <div className="flex flex-col justify-between flex-1 mt-6">
+          <div className="flex mt-16 flex-col justify-between flex-1 ">
             {usesrData.role === 'admin' ? (
               <AdminMenu />
             ) : usesrData.role === 'worker' ? (
@@ -137,26 +137,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div>
-          <hr className="border-gray-600" />
-
-          {/* Profile Menu */}
-          <NavLink
-            to="/dashboard/profile"
-            className={({ isActive }) =>
-              `flex items-center px-4 py-2 mt-5 transition-colors duration-300 transform hover:bg-gray-700 hover:text-white ${
-                isActive ? 'bg-gray-700 text-white' : 'text-gray-400'
-              }`
-            }
-          >
-            <FcSettings className="w-5 h-5" />
-            <span className="mx-4 font-medium">Profile</span>
-          </NavLink>
-          <button className="flex w-full items-center px-4 py-2 mt-5 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors duration-300 transform">
-            <GrLogout className="w-5 h-5" />
-            <span className="mx-4 font-medium">Logout</span>
-          </button>
-        </div>
+     
       </div>
     </>
   )

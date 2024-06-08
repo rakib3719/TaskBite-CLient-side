@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.loginBg{
+    background-image: url('./assets/image/gradient-network-connection-background_23-2148881320.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+.regBg{
+    background-image: url('./assets/image/gr2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+ 
+  
+  .login{
+    box-sizing: border-box;
+    border-radius: 27px;
+    background: linear-gradient(134.42deg, rgba(137, 127, 127, 0.8) 1.927%,rgba(196, 196, 196, 0.1) 100%);
+    opacity: 0.9;
+  }

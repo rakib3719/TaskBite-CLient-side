@@ -135,13 +135,13 @@ const regFormHandle = async e =>{
 
 
     return (
-        <div>
+        <div  >
         {/* <Navbar></Navbar> */}
             
-         <div  className="bg-black mt-8 rounded pt-20 pb-20">
+         <div  className="regBg mt-8 rounded pt-20 pb-20">
     
      <Toaster></Toaster>
-    <div className="login mx-auto w-[85%]  max-w-[1620px]  md:w-1/2 md:ml-auto p-8 text-white backdrop-blur-3xl md:backdrop-blur-none md:mr-16 ">
+    <div className="login mx-auto w-[85%]  max-w-[1620px]  md:ml-auto p-8 text-white backdrop-blur-3xl md:backdrop-blur-none md:w-[60%]  ">
 
     <form onSubmit={regFormHandle} >
 
