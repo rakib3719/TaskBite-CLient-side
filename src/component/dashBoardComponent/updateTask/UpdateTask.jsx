@@ -91,7 +91,7 @@ if(data.modifiedCount > 0){
                    
                     <button
                         type="submit"
-                        className="flex items-center bg-[#573c28] text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+                        className="flex items-center bg-[#264065] text-white py-2 px-4 rounded-lg hover:bg-[#051731] transition duration-300"
                     >
                         <FaSave className="mr-2" />
                         Update

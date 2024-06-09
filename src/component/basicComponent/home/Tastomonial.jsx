@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import TastomonialDetails from './TastomonialDetails';
+import { Zoom } from 'react-awesome-reveal';
 const tastomonial = [
     {
         "name": "Maria Fasil",
@@ -64,12 +65,17 @@ const tastomonial = [
 
 const Tastomonial = () => {
     return (
-        <div className='mt-28'>
+        <div className='mt-28 font-raleway '>
 
 
 
-            <h1 className='font-bold text-3xl text-center mb-16p'> Testimonial</h1>
-      <Swiper
+            <h1 data-aos="fade-down" data-aos-duration={1200}  className='font-bold text-3xl text-center mb-16p'> Testimonial</h1>
+      
+
+
+<Zoom duration={3000}>
+
+<Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
@@ -81,7 +87,7 @@ const Tastomonial = () => {
           modifier: 1,
           slideShadows: true,
           
-          
+         
         }}
         pagination={{
             clickable: true, 
@@ -108,6 +114,7 @@ key={idx}
      
       </Swiper>
 
+</Zoom>
         </div>
     );
 };

@@ -110,7 +110,7 @@ const ManageTask = () => {
                                 <td className="p-2 border border-gray-300 text-center">
                                     <buttonp
                                         onClick={() => handleViewTask(data)}
-                                        className="bg-[#264065] hover:bg-blue-700 text-white py-1 px-2 rounded flex items-center justify-center"
+                                        className="bg-[#264065] hover:bg-[#234a7f] text-white py-1 px-2 rounded flex items-center justify-center"
                                     >
                                         <MdVisibility className="mr-1" /> View Task
                                     </buttonp>

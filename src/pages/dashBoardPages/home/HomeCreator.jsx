@@ -244,7 +244,7 @@ try{
                 <td className="px-4 py-2 border text-center">{data.payable_amount}</td>
                 <td className="px-4 py-2 border text-center">
                   <button
-                    className="bg-purple-600 rounded py-2 px-4 text-white flex items-center justify-center w-32"
+                    className="bg-[#264065] rounded py-2 px-4 text-white flex items-center justify-center w-32"
                     onClick={() => handleViewSubmission(data)}
                   >
                     <AiOutlineEye className="mr-2" /> View

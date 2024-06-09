@@ -1,12 +1,11 @@
 import { useContext, useState, useEffect, useRef } from 'react'
-import { GrLogout } from 'react-icons/gr'
-import { FcSettings } from 'react-icons/fc'
+
 import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai'
 import { FaCoins } from 'react-icons/fa'
-import { IoIosNotifications } from 'react-icons/io'
+
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
-import { NavLink, Link } from 'react-router-dom'
-import DashbordMenu from '../DashbordMenu'
+import { Link } from 'react-router-dom'
+
 import useGetUser from '../../../hook/useGetUser'
 import WorkerMenu from '../menu/WorkerMenu'
 import CreatorMenu from '../menu/CreatorMenu'
@@ -114,7 +113,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 mt-12 md:fixed flex flex-col justify-between overflow-x-hidden bg-[#2E2E2E] w-64 space-y-6 px-4 py-6 absolute inset-y-0 left-0 transform ${
+        className={`z-10 mt-12 md:fixed flex flex-col justify-between overflow-x-hidden bg-[#072041] w-64 space-y-6 px-4 py-6 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         } md:translate-x-0 transition duration-200 ease-in-out`}
       >

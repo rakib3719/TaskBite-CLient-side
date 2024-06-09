@@ -1,5 +1,6 @@
 import { FaCoins, FaTasks, FaLock, FaUserFriends, FaMoneyCheckAlt, FaHistory, FaUserCog } from 'react-icons/fa';
 import FeatureCard from './FeatureCard';
+import { Hinge, JackInTheBox, Slide, Zoom } from 'react-awesome-reveal';
 
 const Feture = () => {
     const features = [
@@ -37,9 +38,10 @@ const Feture = () => {
     ];
 
     return (
-        <div   id='feature' className="features-section py-12 ">
-            <h2 className="text-4xl font-bold text-center mb-12">Key Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div   id='feature' className="features-section py-12 mt-28 ">
+            <h2 data-aos="fade-down" data-aos-duration={1200}  className="text-4xl font-raleway font-bold text-center mb-12">Key Features</h2>
+          <Zoom duration={3000}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {features.map((feature, idx) => (
                     <FeatureCard
                         key={idx}
@@ -49,6 +51,7 @@ const Feture = () => {
                     />
                 ))}
             </div>
+          </Zoom>
         </div>
     );
 };

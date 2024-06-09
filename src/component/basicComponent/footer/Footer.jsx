@@ -9,7 +9,7 @@ const Footer = () => {
 
     
     return (
-        <div className=" bg-[black] pb-4 mt-16"  >
+        <div className=" bg-[black] pb-4 mt-16 font-raleway"  >
            <div   className="w-[96%] lg:w-[90%] max-w-7xl mx-auto">
 
 

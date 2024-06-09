@@ -24,11 +24,13 @@ import ManageUsers from "../pages/dashBoardPages/admin/ManageUsers";
 import ManageTask from "../pages/dashBoardPages/admin/ManageTask";
 import AdminHome from "../pages/dashBoardPages/admin/AdminHome";
 import WorkerPrivateRoute from "../secureRoutes/WorkerPrivateRoute";
+import Error from "../errorPage/Error";
 
 export  const router = createBrowserRouter([
 {
     path:'/',
     element: <Main></Main>,
+    errorElement:<Error></Error>,
     children:[
 
 

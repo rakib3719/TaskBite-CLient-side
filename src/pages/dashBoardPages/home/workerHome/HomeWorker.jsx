@@ -38,7 +38,7 @@ if(load || isLoading){
 }
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-center font-bold text-3xl mt-8 mb-8 text-gray-700">Stats</h1>
+      <h1 className="text-center font-bold text-3xl mt-8 mb-8 text-gray-700">States</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
           <FaCoins className="text-4xl text-yellow-500" />

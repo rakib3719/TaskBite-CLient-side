@@ -16,12 +16,12 @@ const Navbar = () => {
   const nav = (
     <>
       <li><NavLink to='/login'>Login</NavLink></li>
-      <li><NavLink to='/register'>Register</NavLink></li>
+      <li><NavLink to='/registar'>Register</NavLink></li>
     </>
   );
 
   const loggedNav = (
-    <div className="flex flex-col lg:flex-row items-center">
+    <div className="flex font-raleway flex-col lg:flex-row items-center">
       <li>
         <NavLink to={userData.role === "taskCreator" ? "/dashboard/creatorHome" : userData.role === "worker" ? "/dashboard/workerHome" : userData.role === "admin" && "/dashboard/adminHome"}>
           Dashboard
@@ -30,7 +30,9 @@ const Navbar = () => {
       <li>
         <span className="btn btn-sm bg-transparent border-none shadow-none">
           <FaCoins className="text-yellow-500" />
-          Available Coin <sup className="text-sm badge badge-primary">{userData?.coin}</sup>
+          Available Coin <sup className="text-sm badge badge-primary">{  
+                            
+                            userData.role === "admin" ? "":userData?.coin}</sup>
         </span>
       </li>
     </div>

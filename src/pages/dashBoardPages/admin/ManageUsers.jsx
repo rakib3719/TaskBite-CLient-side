@@ -133,7 +133,7 @@ const deleteUser = (email) => {
         <div className="p-4">
             <Toaster></Toaster>
             <div className="overflow-x-auto min-h-[400px]">
-                <table className="table-auto w-full text-left border-collapse border border-gray-300">
+                <table className="table-auto relative w-full text-left border-collapse border border-gray-300">
                     {/* Table Header */}
                     <thead className="bg-gray-100">
                         <tr>
@@ -174,11 +174,11 @@ const deleteUser = (email) => {
                                     </button>
                                 </td>
                                 <td className="border border-gray-300 p-2">
-                                    <div className="dropdown z-10 dropdown-end relative">
+                                    <div className="dropdown z-50 dropdown-end relative">
                                         <div tabIndex={0} role="button" className="btn btn-outline m-1 flex items-center gap-1">
                                             <MdUpdate /> Update role
                                         </div>
-                                        <ul tabIndex={0} className="dropdown-content  menu z-10 p-2 shadow bg-base-100 rounded-box w-52">
+                                        <ul tabIndex={0} className="dropdown-content  menu absolute z-50 p-2 shadow bg-base-100 rounded-box w-52">
                                             <li  
                                             
                                         onClick={()=> updateRole (data.email, "admin", data?.name)}

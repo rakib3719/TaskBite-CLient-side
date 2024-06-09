@@ -17,9 +17,9 @@ const MySubmission = () => {
   });
 
   const [currentPage, setCurrentPage] = useState(0);
-  const totalData = totalSubmissionCount?.data?.count;
+  const totalData = totalSubmissionCount?.data?.count ?? 0;
   const perPageData = 6;
-  const paginationNumber = Math.ceil(totalData / perPageData);
+  const paginationNumber = Math.max(Math.ceil(totalData / perPageData), 1);
 
   const { data: submissionData = [], isLoading } = useQuery({
     queryKey: ['mySubmissionData', user?.email, currentPage],
@@ -29,7 +29,7 @@ const MySubmission = () => {
     },
   });
 
-  if (isLoading || load) {
+  if (isLoading) {
     return <RingLoading />;
   }
 
@@ -61,7 +61,7 @@ const MySubmission = () => {
           <tbody className="bg-white divide-y divide-gray-200">
             {submissionData.map((data, idx) => (
               <tr key={data._id} className="hover:bg-gray-100 transition-colors duration-200">
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{idx + 1}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{idx + 1 + currentPage * perPageData}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{data.task_title}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{new Date(data.current_date).toLocaleDateString()}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${data.payable_amount}</td>

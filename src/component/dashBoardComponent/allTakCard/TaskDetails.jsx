@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { FaUser, FaCalendarAlt, FaDollarSign } from 'react-icons/fa';
+import { FaUser, FaCalendarAlt, FaDollarSign, FaClock } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import RingLoading from '../../loader/RingLoading';
-import { useContext } from 'react';
+import { useContext} from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import Countdown from 'react-countdown';
@@ -12,6 +12,7 @@ const TaskDetails = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
+
 
   const { data: task = {}, isLoading } = useQuery({
     queryKey: ['taskDetails', id],
@@ -64,12 +65,35 @@ const TaskDetails = () => {
     return <RingLoading />;
   }
 
+  const renderer = ({ days, hours, minutes, seconds }) => {
+    return (
+      <div className="flex justify-center items-center space-x-2 text-gray-700 mb-4">
+        <div className="flex flex-col items-center bg-gray-100 border border-gray-200 rounded-lg p-2 shadow">
+          <span className="text-xl font-bold">{days}</span>
+          <span className="text-xs text-gray-500">Days</span>
+        </div>
+        <div className="flex flex-col items-center bg-gray-100 border border-gray-200 rounded-lg p-2 shadow">
+          <span className="text-xl font-bold">{hours}</span>
+          <span className="text-xs text-gray-500">Hours</span>
+        </div>
+        <div className="flex flex-col items-center bg-gray-100 border border-gray-200 rounded-lg p-2 shadow">
+          <span className="text-xl font-bold">{minutes}</span>
+          <span className="text-xs text-gray-500">Minutes</span>
+        </div>
+        <div className="flex flex-col items-center bg-gray-100 border border-gray-200 rounded-lg p-2 shadow">
+          <span className="text-xl font-bold">{seconds}</span>
+          <span className="text-xs text-gray-500">Seconds</span>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="bg-gray-100 flex flex-col items-center sm:p-6">
       <div className="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
         <Toaster />
         <h2 className="text-3xl font-bold mb-4 text-gray-800">{task.title}</h2>
-        <Countdown date={new Date(task.completion_date)} />
+        <Countdown date={new Date(task.completion_date)} renderer={renderer} />
         <div className="mb-4">
           <img src={task.task_img} alt="Task" className="w-full h-64 object-cover rounded-md" />
         </div>

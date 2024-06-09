@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const axiosSecure = axios.create({
-    baseURL: 'https://task-bite-server-side.vercel.app',
+    // baseURL: 'https://task-bite-server-side.vercel.app',
+    baseURL: 'http://localhost:5000',
 
 
   })

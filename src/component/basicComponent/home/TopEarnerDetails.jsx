@@ -7,35 +7,36 @@ import BarsLoading from '../../loader/BarsLoading';
 const TopEarnerDetails = ({ user }) => {
     const axiosPublic = useCommonAxios();
 
-
-    const { data: taskCompletion = {} } = useQuery({
-        queryKey: ['taskCompletion'],
+    const { data: taskCompletion, isLoading } = useQuery({
+        queryKey: ['taskCompletion', user?.email],
         queryFn: async () => {
             const response = await axiosPublic.get(`completion/${user?.email}`);
-            return response;
-        }
+            return response.data; // Assuming the response has the data in this structure
+        },
+        enabled: !!user?.email, // Ensure the query only runs if the email is available
     });
 
-    const totalCompletion = taskCompletion?.data?.count || 0;
+    const totalCompletion = taskCompletion?.count || 0;
 
-    // if (isLoading) {
-    //     return (
-    //         <div className="py-4 rounded shadow-md w-60 sm:w-80 animate-pulse bg-gray-50">
-    //             <div className="flex p-4 space-x-4 sm:px-8">
-    //                 <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gray-300"></div>
-    //                 <div className="flex-1 py-2 space-y-4">
-    //                     <div className="w-full h-3 rounded bg-gray-300"></div>
-    //                     <div className="w-5/6 h-3 rounded bg-gray-300"></div>
-    //                 </div>
-    //             </div>
-    //             <div className="p-4 space-y-4 sm:px-8">
-    //                 <div className="w-full h-4 rounded bg-gray-300"></div>
-    //                 <div className="w-full h-4 rounded bg-gray-300"></div>
-    //                 <div className="w-3/4 h-4 rounded bg-gray-300"></div>
-    //             </div>
-    //         </div>
-    //     );
-    // }
+    // Check if data is loading
+    if (isLoading) {
+        return (
+            <div className="py-4 rounded shadow-md w-60 sm:w-80 animate-pulse bg-gray-50">
+                <div className="flex p-4 space-x-4 sm:px-8">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-gray-300"></div>
+                    <div className="flex-1 py-2 space-y-4">
+                        <div className="w-full h-3 rounded bg-gray-300"></div>
+                        <div className="w-5/6 h-3 rounded bg-gray-300"></div>
+                    </div>
+                </div>
+                <div className="p-4 space-y-4 sm:px-8">
+                    <div className="w-full h-4 rounded bg-gray-300"></div>
+                    <div className="w-full h-4 rounded bg-gray-300"></div>
+                    <div className="w-3/4 h-4 rounded bg-gray-300"></div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="flex flex-col items-center max-w-sm p-6 bg-white shadow-md rounded-lg border border-gray-200">
@@ -56,6 +57,7 @@ const TopEarnerDetails = ({ user }) => {
                     </p>
                     <p className="text-lg font-medium text-gray-700 flex items-center justify-center gap-2">
                         <FaTasks className="text-[#264065 ]" /> Task Completion: {totalCompletion}
+                     
                     </p>
                 </div>
             </div>

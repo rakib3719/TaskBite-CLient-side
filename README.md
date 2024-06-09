@@ -1,7 +1,7 @@
 # TaskBite
 
 ## Admin Login Credentials
-- **Username**: omar@gmail.com
+- **Username**: admin@gmail.com
 - **Password**: 1234aA
 
 ## Live Site URL

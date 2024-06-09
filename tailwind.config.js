@@ -6,6 +6,14 @@ export default {
   ],
   theme: {
     extend: {},
+
+    fontFamily:{
+
+      'raleway': [' "Raleway", sans-serif'],
+ 
+      'work-sense':['"Work Sans", sans-serif']
+    },
+
   },
   plugins: [
     require('daisyui'),

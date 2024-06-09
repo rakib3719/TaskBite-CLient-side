@@ -76,7 +76,7 @@ const navigate = useNavigate()
   //   refetch();
   // };
 
-  const sortedTasks = [...myAllTask].sort((a, b) => new Date(b.current_time) - new Date(a.current_time));
+  const sortedTasks = myAllTask;
 
   if (isLoading) {
     return <RingLoading />;
@@ -114,9 +114,11 @@ const navigate = useNavigate()
                   <td>
                     <button
                   onClick={()=> navigate(`/dashboard/updateTask/${data._id}`)}
-                      className="bg-[#264065] rounded py-2 px-2 sm:px-5 sm:py-3 text-white btn cursor-pointer"
-                    >
-                      <MdSystemUpdateAlt /> Update
+                      className="bg-[#264065] rounded py-2 px-2 sm:px-5 m:py-3 text-white btn cursor-pointer"
+                     >
+                  <div className="flex items-center gap-2 justify-center">
+                  <MdSystemUpdateAlt />  <p>Update</p>
+                  </div>
                     </button>
                   </td>
                   <td>
@@ -124,7 +126,10 @@ const navigate = useNavigate()
                       onClick={() => deleteHandle(data._id, data.payable_amount, data.quantity)}
                       className="bg-red-800 rounded py-2 px-2 sm:px-5 sm:py-3 text-white btn cursor-pointer"
                     >
-                      <MdDeleteForever /> Delete
+                   <div className="flex items-center justify-center gap-2">
+
+                   <MdDeleteForever /> <span>Delete</span>
+                   </div>
                     </button>
                   </td>
                 </tr>
