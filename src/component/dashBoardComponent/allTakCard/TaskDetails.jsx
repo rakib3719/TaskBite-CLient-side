@@ -101,7 +101,7 @@ const TaskDetails = () => {
         <div className="flex flex-wrap mb-6">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
             <div className="flex items-center">
-              <FaUser className="text-[#264065] text-xl mr-2" />
+              <FaUser className="text-[#0bb990] text-xl mr-2" />
               <div>
                 <p className="text-gray-600">Creator</p>
                 <p className="text-gray-800 font-semibold">{task.creator_name}</p>
@@ -134,7 +134,7 @@ const TaskDetails = () => {
             </label>
             <textarea
               id="submissionDetails"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#264065]"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-[#0bb990]"
               rows="5"
               name="submissionDetails"
               required

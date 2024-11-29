@@ -77,7 +77,7 @@ const ReviewRequests = () => {
               <td className="p-4 space-x-2">
                 <button
                   onClick={() => openModal(request)}
-                  className="bg-[#264065 ] hover:bg-blue-600 text-white py-1 px-2 rounded"
+                  className="bg-[#0bb990 ] hover:bg-blue-600 text-white py-1 px-2 rounded"
                 >
                   View Submission
                 </button>
@@ -111,7 +111,7 @@ const ReviewRequests = () => {
             <p className="text-gray-300 mb-4">{selectedSubmission.submission_details}</p>
             <button
               onClick={closeModal}
-              className="bg-[#264065 ] hover:bg-blue-600 text-white py-2 px-4 rounded"
+              className="bg-[#0bb990 ] hover:bg-blue-600 text-white py-2 px-4 rounded"
             >
               Close
             </button>

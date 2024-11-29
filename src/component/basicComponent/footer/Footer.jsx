@@ -27,29 +27,29 @@ const Footer = () => {
   <div className="sm:flex ml-4 sm:ml-0 sm:text-left mx-auto justify-between items-center ">
 
 
-{/* #264065 */}
+{/* #0bb990 */}
 <div  className="mt-4 text-white " >
-<p  className="text-[#264065] mt-4 font-bold text-lg font-playFair" >Contact us</p>
+<p  className="text-[#0bb990] mt-4 font-bold text-lg font-playFair" >Contact us</p>
 
 <div  className="flex mt-4 mb-4 " >
 <p   className="bg-white w-10 h-1" ></p>
-<p  className="bg-[#264065] w-10 h-1   " ></p>
+<p  className="bg-[#0bb990] w-10 h-1   " ></p>
 
 </div>
 
 
-    <p   className="flex gap-2 items-center text-lg">  <FaPhone  className="text-[#264065]"></FaPhone> 01608888888 </p>
-    <p   className="flex gap-2 items-center text-lg">  <FaWhatsapp  className="text-[#264065]"></FaWhatsapp> 01900000000 </p>
-    <p   className="flex gap-2 mt-2 items-center text-lg">  <CiMail  className="text-[#264065]"></CiMail> stsupport76769@gmail.com </p>
-    <p   className="flex gap-2 mt-2 items-center text-lg">  <CiMail  className="text-[#264065]"></CiMail> bannah76769@gmail.com </p>
+    <p   className="flex gap-2 items-center text-lg">  <FaPhone  className="text-[#0bb990]"></FaPhone> 01608888888 </p>
+    <p   className="flex gap-2 items-center text-lg">  <FaWhatsapp  className="text-[#0bb990]"></FaWhatsapp> 01900000000 </p>
+    <p   className="flex gap-2 mt-2 items-center text-lg">  <CiMail  className="text-[#0bb990]"></CiMail> stsupport76769@gmail.com </p>
+    <p   className="flex gap-2 mt-2 items-center text-lg">  <CiMail  className="text-[#0bb990]"></CiMail> bannah76769@gmail.com </p>
 </div>
 
 <nav className="flex flex-col text-white space-y-2">
-<p  className="text-[#264065] mt-4 font-bold text-lg font-playFair" >Go To</p>
+<p  className="text-[#0bb990] mt-4 font-bold text-lg font-playFair" >Go To</p>
 
 <div  className="flex mt-4 mb-4 " >
 <p   className="bg-white w-10 h-1" ></p>
-<p  className="bg-[#264065] w-10 h-1   " ></p>
+<p  className="bg-[#0bb990] w-10 h-1   " ></p>
 
 </div>
     <Link to='/' className="link link-hover">Home</Link>
@@ -58,11 +58,11 @@ const Footer = () => {
     <Link className="link link-hover"></Link>
   </nav> 
 <nav className="flex flex-col space-y-2 text-white">
-<p  className="text-[#264065] mt-4 font-bold text-lg font-playFair" >Action</p>
+<p  className="text-[#0bb990] mt-4 font-bold text-lg font-playFair" >Action</p>
 
 <div  className="flex mt-4 mb-4 " >
 <p   className="bg-white w-10 h-1" ></p>
-<p  className="bg-[#264065] w-10 h-1   " ></p>
+<p  className="bg-[#0bb990] w-10 h-1   " ></p>
 
 </div>
     <Link to='#feature' className="link link-hover"   >Feature</Link>

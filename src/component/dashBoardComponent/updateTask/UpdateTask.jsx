@@ -63,7 +63,7 @@ if(data.modifiedCount > 0){
                     <input
                         type="text"
                         name="title"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#264065 ]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0bb990 ]"
                         required
                         defaultValue={taskInfo.title}
                     />
@@ -72,7 +72,7 @@ if(data.modifiedCount > 0){
                     <label className="block text-gray-700 mb-2">Task Detail</label>
                     <textarea
                         name="detail"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#264065 ]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0bb990 ]"
                         required
                         defaultValue={taskInfo.task_Detail}
                     />
@@ -82,7 +82,7 @@ if(data.modifiedCount > 0){
                     <textarea
                         type="text"
                         name="submission"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#264065 ]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0bb990 ]"
                         required
                         defaultValue={taskInfo.submission_Details}
                     />
@@ -91,7 +91,7 @@ if(data.modifiedCount > 0){
                    
                     <button
                         type="submit"
-                        className="flex items-center bg-[#264065] text-white py-2 px-4 rounded-lg hover:bg-[#051731] transition duration-300"
+                        className="flex items-center bg-[#0bb990] text-white py-2 px-4 rounded-lg hover:bg-[#051731] transition duration-300"
                     >
                         <FaSave className="mr-2" />
                         Update

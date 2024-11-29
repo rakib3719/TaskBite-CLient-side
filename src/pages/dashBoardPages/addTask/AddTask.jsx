@@ -82,7 +82,7 @@ const AddTask = () => {
 
     return (
         <div>
-            <div className="bg-[#264065] mt-12 rounded-md">
+            <div className="bg-[#0bb990] mt-12 rounded-md">
                 <Toaster></Toaster>
                 <div className="p-4 sm:p-12">
                     <div className="add-form-bg bg-gray-500 rounded border mx-auto p-4 md:p-8">
@@ -197,11 +197,11 @@ const AddTask = () => {
                             </div>
                             <div className="flex justify-end">
                                 {!addLoader ? (
-                                    <button className="text-white font-raleway px-4 bg-[#264065] font-bold mt-8 py-2 rounded">
+                                    <button className="text-white font-raleway px-4 bg-[#0bb990] font-bold mt-8 py-2 rounded">
                                         <input type="submit" value="Add Task" />
                                     </button>
                                 ) : (
-                                    <button className="text-white font-raleway px-4 bg-[#264065] font-bold mt-8 py-2 rounded">
+                                    <button className="text-white font-raleway px-4 bg-[#0bb990] font-bold mt-8 py-2 rounded">
                                         <ButtonLoader />
                                     </button>
                                 )}

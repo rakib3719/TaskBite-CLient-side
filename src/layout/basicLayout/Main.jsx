@@ -2,16 +2,21 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../component/basicComponent/Navbar";
 import Footer from "../../component/basicComponent/footer/Footer";
 
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Main = () => {
 
 
 
     return (
         <div>
-        <div  className=" w-[94%] md:w-[90%] max-w-7xl mx-auto">
+        <div  className=" ">
         {/* <div  className="  max-w-[1820px] mx-auto"> */}
-        <Navbar></Navbar>
+      
+      <div className=" max-w-[1500px]  mx-auto relative">
+      <Navbar></Navbar>
+      </div>
+       
             <Outlet></Outlet>
         </div>
 

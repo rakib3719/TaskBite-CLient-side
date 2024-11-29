@@ -17,7 +17,7 @@ const AllTaskCard = ({ task }) => {
       <div className="px-6 py-4">
         <div className="flex items-center justify-between text-gray-700 mb-4">
           <h1 className="flex items-center gap-2 text-lg font-semibold">
-            <FaUser className="text-xl text-[#264065]" /> {task.creator_name}
+            <FaUser className="text-xl text-[#0bb990]" /> {task.creator_name}
           </h1>
         </div>
         <h1 className="text-2xl font-bold text-gray-800 mb-4">{task.title}</h1>
@@ -32,7 +32,7 @@ const AllTaskCard = ({ task }) => {
         </p>
         <hr className="my-4 border-gray-300" />
      
-       <button onClick={() => navigate(`/dashboard/taskDetails/${task._id}`)} className="w-full bg-[#264065] hover:bg-[#11294a] text-white py-2 rounded-md flex items-center justify-center gap-2 transition-colors duration-300">
+       <button onClick={() => navigate(`/dashboard/taskDetails/${task._id}`)} className="w-full bg-[#0bb990] hover:bg-[#11294a] text-white py-2 rounded-md flex items-center justify-center gap-2 transition-colors duration-300">
           <MdVisibility className="text-xl" /> View Details
         </button>
       

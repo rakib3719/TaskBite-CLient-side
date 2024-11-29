@@ -48,7 +48,7 @@ if(load || isLoading){
           </div>
         </div>
         <div className="bg-white shadow-md rounded-lg p-6 flex items-center justify-between">
-          <FaTasks className="text-4xl text-[#264065 ]" />
+          <FaTasks className="text-4xl text-[#0bb990 ]" />
           <div className="text-right">
             <h2 className="text-2xl font-bold">{totalSubmission?.count}</h2>
             <p className="text-gray-500">Total Submissions</p>
@@ -67,7 +67,7 @@ if(load || isLoading){
       <h1 className="text-center font-bold text-3xl mt-8 mb-8 text-gray-700">Approved Submissions</h1>
       <div className="overflow-x-auto rounded-lg shadow-md">
         <div className="min-w-full overflow-hidden">
-          <table className="min-w-full bg-white border border-gray-200">
+          <table className=" table-xs min-w-full bg-white border border-gray-200">
             <thead className="bg-gray-100 text-gray-700">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider border-b">#</th>

@@ -19,7 +19,7 @@ const HeroSlider = ({heading, title,photo}) => {
                             <br className="hidden md:inline lg:hidden" /> {title}
                         </p>
                         <div className="flex font-raleway flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                            <Link rel="noopener noreferrer" to="dashboard/adminHome" className="px-8 py-3 text-lg font-semibold rounded bg-[#264065] text-white">Go To Dashboard</Link>
+                            <Link rel="noopener noreferrer" to="dashboard/adminHome" className="px-8 py-3 text-lg font-semibold rounded bg-[#0bb990] text-white">Go To Dashboard</Link>
                             <Link to={'/registar'} rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold border rounded text-white border-white">Registration</Link>
                         </div>
                      </Slide>

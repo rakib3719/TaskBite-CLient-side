@@ -6,10 +6,10 @@ const FeatureCard = ({ icon: Icon, title, description }) => {
             <div className="absolute h-1"></div>
             <div className="items-center">
                 <div className="flex-shrink-0 w-16 h-16 flex justify-center mb-4 items-center bg-white rounded-full shadow mr-6">
-                    <Icon size={30} className="text-[#264065]" />
+                    <Icon size={30} className="text-[#0bb990]" />
                 </div>
                 <div className="flex-1">
-                    <h3 className="text-2xl font-raleway font-semibold text-[#264065] mb-2">{title}</h3>
+                    <h3 className="text-2xl font-raleway font-semibold text-[#0bb990] mb-2">{title}</h3>
                     <p className="text-gray-700 font-work-sense">{description}</p>
                 </div>
             </div>

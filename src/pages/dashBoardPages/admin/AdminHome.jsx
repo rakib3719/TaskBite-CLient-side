@@ -119,7 +119,7 @@ if(isLoading || load){
       <h1 className="text-center font-bold text-3xl mt-8 mb-8">States</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white shadow-lg rounded-lg p-6 flex items-center justify-between">
-          <FaUsers className="text-4xl text-[#264065 ]" />
+          <FaUsers className="text-4xl text-[#0bb990 ]" />
           <div className="text-right">
             <h2 className="text-2xl font-bold">{totalUsers}</h2>
             <p className="text-gray-500">Total Users</p>
@@ -145,7 +145,7 @@ if(isLoading || load){
 
     <h1 className="text-center font-bold text-3xl mt-8 mb-8">Withdraw Request</h1>
       <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
-        <table className="table-xs lg:table-sm table w-full bg-white border-collapse">
+        <table className="table-xs table w-full bg-white border-collapse">
           <thead className="bg-gray-200">
             <tr>
               <th className="px-4 py-2 border">#</th>

@@ -21,7 +21,7 @@ const Navbar = () => {
   );
 
   const loggedNav = (
-    <div className="flex font-raleway flex-col lg:flex-row items-center">
+    <div className="flex mx-auto justify-center  font-raleway flex-col lg:flex-row items-center">
       <li>
         <NavLink to={userData.role === "taskCreator" ? "/dashboard/creatorHome" : userData.role === "worker" ? "/dashboard/workerHome" : userData.role === "admin" && "/dashboard/adminHome"}>
           Dashboard
@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 relative">
+    <div className="navbar absolute ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,12 +66,13 @@ const Navbar = () => {
               src={user?.photoURL}
               className="rounded-full w-12 h-12"
             />
-            <button onClick={logOutHandle} className='btn font-raleway bg-[#264065] text-white block text-center'>Logout</button>
+            {/* #0bb990*/}
+            <button onClick={logOutHandle} className='btn font-raleway bg-[#0bb990] text-white block text-center'>Logout</button>
           </div>
         </div> :  
         <div className="navbar-end">
           <div className='flex items-center gap-4'>
-            <button className='btn font-raleway bg-[#264065] text-white block text-center'>
+            <button className='btn font-raleway bg-[#0bb990] text-white block text-center'>
               <a href="https://www.youtube.com/watch?v=YiSQ_db-Dcw&list=PLTSUms4Q9B9dMGKa_ZemhLoA1OKLSYUhC" target="_blank" rel="noopener noreferrer">Watch Demo</a>
             </button>
           </div>

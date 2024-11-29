@@ -56,7 +56,7 @@ const TopEarnerDetails = ({ user }) => {
                         Coins Available: <span className="text-yellow-500 font-semibold">{user?.coin}</span>
                     </p>
                     <p className="text-lg font-medium text-gray-700 flex items-center justify-center gap-2">
-                        <FaTasks className="text-[#264065 ]" /> Task Completion: {totalCompletion}
+                        <FaTasks className="text-[#0bb990 ]" /> Task Completion: {totalCompletion}
                      
                     </p>
                 </div>

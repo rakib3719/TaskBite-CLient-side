@@ -47,7 +47,7 @@ const MySubmission = () => {
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-center font-bold text-3xl mb-8 text-gray-800">My Submission</h1>
       <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className=" table-xs table min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>

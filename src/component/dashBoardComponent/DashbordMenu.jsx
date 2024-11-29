@@ -16,11 +16,12 @@ const DashbordMenu = () => {
         <div className="flex relative w-full">
             <div className="fixed top-8 left-4 z-50">
                 <Link to="/" className="text-white text-xl">
-                    <img src={logo} alt="Logo" className="w-24 -mt-8 ml-8" />
+                    {/* <img src={logo} alt="Logo" className="w-24 -mt-8 ml-8" /> */}
+                    <h1 className="ml-4 font-bold">TaskBite</h1>
                 </Link>
             </div>
 
-            <div className="text-right md:fixed w-full right-0 border-r-2 z-20 bg-[#112238] border-yellow-400 flex items-center gap-12 justify-between md:justify-end text-white border-b-2 border-t-0 ml-32 p-4">
+            <div className="text-right md:fixed w-full right-0 border-r-2 z-20 bg-[#07624d] border-yellow-400 flex items-center gap-12 justify-between md:justify-end text-white border-b-2 border-t-0 ml-32 p-4">
                 <div className="sm:flex gap-8 mr-12 justify-end items-center">
                     <div className="flex gap-8 justify-end items-center">
                         <div className="relative">

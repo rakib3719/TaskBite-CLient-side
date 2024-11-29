@@ -93,7 +93,7 @@ const navigate = useNavigate()
       <div>
         <h1 className="text-center font-bold font-raleway text-xl md:text-3xl mt-8 mb-8">Your All Tasks</h1>
         <div className="overflow-x-auto">
-          <table className="table table-xs sm:table-sm md:table-md lg:table-lg border border-gray-300">
+          <table className="table table-xs  border border-gray-300">
             <thead>
               <tr>
                 <th></th>
@@ -114,7 +114,7 @@ const navigate = useNavigate()
                   <td>
                     <button
                   onClick={()=> navigate(`/dashboard/updateTask/${data._id}`)}
-                      className="bg-[#264065] rounded py-2 px-2 sm:px-5 m:py-3 text-white btn cursor-pointer"
+                      className="bg-[#0bb990] rounded py-2 px-2 sm:px-5 m:py-3 text-white btn cursor-pointer"
                      >
                   <div className="flex items-center gap-2 justify-center">
                   <MdSystemUpdateAlt />  <p>Update</p>

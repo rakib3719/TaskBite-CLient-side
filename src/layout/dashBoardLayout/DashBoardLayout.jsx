@@ -18,7 +18,7 @@ if(isLoading){
 }
 
     return (
-        <div  className="w-[94%] font-raleway md:w-[90%] max-w-7xl mx-auto " >
+        <div  className="font-raleway  max-w-7xl mx-auto " >
        
 <div className="hidden md:block">
 <DashbordMenu

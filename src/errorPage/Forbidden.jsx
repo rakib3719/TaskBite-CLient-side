@@ -11,10 +11,10 @@ const Forbidden = () => {
             You do not have permission to view this page.
           </p>
           <div className="flex space-x-4">
-            <Link to="/" className="px-6 py-3 font-semibold bg-[#264065] text-white rounded-lg shadow-md transition-transform transform hover:scale-105">
+            <Link to="/" className="px-6 py-3 font-semibold bg-[#0bb990] text-white rounded-lg shadow-md transition-transform transform hover:scale-105">
               Go to Home
             </Link>
-            <Link to="/contact" className="px-6 py-3 font-semibold bg-[#264065] text-white rounded-lg shadow-md transition-transform transform hover:scale-105">
+            <Link to="/contact" className="px-6 py-3 font-semibold bg-[#0bb990] text-white rounded-lg shadow-md transition-transform transform hover:scale-105">
           Go Back
             </Link>
           </div>

@@ -30,7 +30,7 @@ const PaymentHistory = () => {
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-center font-bold text-3xl mt-8 mb-8">Payment History</h1>
             <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
-                <table className="table-auto w-full bg-white border-collapse">
+                <table className="table-xs w-full bg-white border-collapse">
                     <thead className="bg-gray-200">
                         <tr>
                             <th className="px-4 py-2 border">#</th>

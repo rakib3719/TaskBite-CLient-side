@@ -102,7 +102,7 @@ if(data.insertedId){
           Withdraw System
         </h2>
         <p className="text-gray-600 flex items-center">
-          <AiOutlineInfoCircle className="mr-2 text-[#264065 ]" />
+          <AiOutlineInfoCircle className="mr-2 text-[#0bb990 ]" />
           1 Dollar = 20 Coins
         </p>
         <div className="mt-4">
@@ -169,7 +169,7 @@ if(data.insertedId){
                     </div>
                     <button 
                         type="submit" 
-                        className="bg-[#264065] hover:bg-[#061830] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="bg-[#0bb990] hover:bg-[#061830] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
                         Withdraw
                     </button>

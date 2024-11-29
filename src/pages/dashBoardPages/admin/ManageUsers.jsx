@@ -133,7 +133,7 @@ const deleteUser = (email) => {
         <div className="p-4">
             <Toaster></Toaster>
             <div className="overflow-x-auto min-h-[400px]">
-                <table className="table-auto relative w-full text-left border-collapse border border-gray-300">
+                <table className="table-xs table relative w-full text-left border-collapse border border-gray-300">
                     {/* Table Header */}
                     <thead className="bg-gray-100">
                         <tr>
